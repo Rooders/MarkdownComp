@@ -1,14 +1,21 @@
 # Review 1
 
+We kindly ask the reviewer to reconsider their assessment, as we believe there has been a misunderstanding of the contributions of our work:
+
 **Q:**  For some translation directions, DeMPT built upon the ``bloomz-7b1-mt`` seems no better than Transformer.
 
-**A:**  We have two points to response this question:
-- The inferior performance of  DeMPT built upon the ``blooms-7b1-mt `` compared to Transformer is due to the **inherent capability difference** across different base models (for example, the DeMPT built upon stronger  ``llama-2-7b`` base model surpasses Transformer across all translation directions), rather than an issue caused by our proposed approach. On the contrary, the DeMPT can enhance the capability of the base large model to make up for the performance gap with the original Transformer in context-aware MT. While a detailed analysis  about **inherent capability difference** across different LLMs, i.e., base models, has obviously exceeded the scope of this research. This paper mainly focuses on improving the context-aware MT capability of LLMs, and experiments in this paper  suggest that the proposed DeMPT is significantly superior to the traditional fine-tuning methods in improving the context-aware MT capability of LLMs.
-- In LLMs-based MT community, experimental results in related studies ([Li et al., 2023; Wang et al., 2023; Zhu et al., 2023; Mu et al., 2023; Zheng et al., 2024](#1)) show that the translation performance of some larger-scale LLMs in some translaiton directions are not as good as transformer models trained on some domain-specific data. These experimental results in this paper may verify this finding again.
+**A:**  We have two points to respond to this question:
+- The inferior performance of  DeMPT built upon the ``bloomz-7b1-mt `` compared to Transformer is due to the **inherent capability difference** across different base models (for example, the DeMPT built upon stronger  ``llama-2-7b`` base model surpasses Transformer across all translation directions), rather than an issue caused by our proposed approach. On the contrary, the DeMPT can enhance the capability of the base large model to make up for the performance gap with the original Transformer in context-aware MT. A detailed analysis of **inherent capability difference** across different LLMs, i.e., base models, has exceeded the scope of this research. This paper primarily focuses on improving the context-aware MT capability of LLMs, and experiments suggest that the proposed DeMPT is significantly superior to the traditional fine-tuning methods in enhancing the context-aware MT capability of LLMs.
+- In the LLMs-based MT community, experimental results from related studies ([Li et al., 2023; Wang et al., 2023; Zhu et al., 2023; Mu et al., 2023; Zheng et al., 2024](#1)) indicate that the translation performance of certain larger-scale LLMs in specific translation directions may not match that of transformer models trained on domain-specific data. The experimental results presented in this paper serve to corroborate this observation further.
+  
+**Q:** Provide a scientific and logical basis for the following assertion:
 
-**Q:** Provide a scientific and logical basis for the some assertion.
+> Importantly, the intra-sentence context inherently contains richer parallel semantic information with the target sentence and should be given a higher priority than the inter-sentence context. Consequently, we propose that separately modeling and utilizing the inter- and intra-sentence contexts should explicitly inform LLMs of the document-level context and the current sentence itself, thus being able to prevent the misallocation of attention weights to source-side tokens.
 
-**A:** The information in intra-sentence context is parallel with that in target sentence, it may be natural and intuitive that giving intra-sentence context a higher priority of attention compared to inter-sentence context with a non-parallel information from target sentence.
+**A:** Since the intra-sentence context, i.e., the source sentence, is semantically identical to the target sentence, it may be natural and intuitive to assign a higher priority of attention to the intra-sentence context compared to the inter-sentence context which contains non-parallel information from the target sentence. The experimental results well demonstrate this, in which our model with decoding-enhanced strategy explicitly improves the weight of the intra-sentence sentence during the decoding phase and performs better than these models with the misallocation of attention weights, i.e., with equal attention weight to inter- and intra-context.
+
+Therefore, if we have clarified any of the misunderstandings, we kindly ask for reconsideration of the scores.
+
 
 ## References
 - Yachao Li, Junhui Li, Jing Jiang and Min Zhang. Enhancing document-level translation of large language model via translation mixed-instructions in _arXiv preprint arXiv:2401.08088_. 2023  
@@ -17,6 +24,22 @@
 - Yongyu Mu, Abudurexiti Reheman, Zhiquan Cao, Yuchun Fan, Bei Li, Yinqiao Li, Tong Xiao, Chunliang Zhang and Jingbo Zhu. Augmenting large language model translators via translation memories in _arXiv preprint arXiv:2305.17367_. 2023
 - Jiawei Zheng, Hanghai Hong, Xiaoli Wang, Jingsong Su, Yonggui Liang and Shikai Wu. Fine-tuning Large Language Models for Domain-specific Machine Translation in _arXiv preprint arXiv:2402.15061_. 2024
 
+# To AC 
+To the attention of the ACs and SACs,
+
+We are writing to express our concern regarding the assessment of our work by the Reviewer zLGp due to the **unreasonable questions and suggestions** in this review.
+
+Specifically, the following statements by Reviewer zLGp are particularly telling of the quality of the review.
+
+- the reviewer suggests it lacks convincing evidence that DeMPT built upon ``bloomz-7b-mt`` performs worse than basic Transformer in some translation directions. However, the performance gap here is obviously from the **inherent capability difference** across various foundation models, and our DeMPT built upon ``llama-2-7b`` outperforms the basic Transformer across all translation tasks. To provide evidence for this and analyze **inherent capability difference** across various foundation models, i.e., LLMs, has exceeded the scope of this research. 
+- the reviewer asked us to provide a scientific and logical basis for some common-sense assertions in MT research. For example, the assertion of _the intra-sentence context inherently contains richer parallel semantic information with the target sentence and should be given a higher priority than the inter-sentence context._
+
+We believe a closer look at our paper's details would alleviate the Reviewer's concerns. Your assistance in prompting the reviewer to reconsider the assessment of our work based on the rebuttal would be greatly appreciated.
+
+Thank you for your time and consideration.
+
+
+
 # Review 2
 
 We sincerely appreciate the comment from you. Our response to the raised concerns or questions is as follows, with the expectation that they will effectively address the concerns and further improve the soundness of this work.
@@ -24,27 +47,24 @@ We sincerely appreciate the comment from you. Our response to the raised concern
 **Q:** The discussion about the difference between proposed DeMPT and MSP.
 
 **A:** DeMPT mainly differs from MSP in the following aspects:
-- DeMPT is designed to adapt **LLMs** rather than **pre-trained model** used in MSP.
-- DeMPT adopts a **phase-aware prompt** to make distinctive modeling for different inputs, i.e., inter- , intra-sentence contexts and target sentence, which is **not available** in MSP.
-- DeMPT adopts a **decoding-enhanced strategy** to further improve the effectiveness of utilization of different context informations, which is **not available** in MSP.
-- DeMPT is designed for the alleviation of discourse problems in **context-aware LLM-based** MT task rather than that for **sentence-level** MT task in MSP. 
+- DeMPT adopts a phase-aware prompt to enable distinctive modeling for different inputs, namely inter-sentence contexts, intra-sentence contexts, and the target sentence, a feature not present in MSP.
+- DeMPT incorporates a decoding-enhanced strategy to further improve the effectiveness of utilizing different context information, a capability not available in MSP.
+- DeMPT is designed to alleviate discourse problems in context-aware LLM-based machine translation tasks, rather than addressing sentence-level machine translation tasks as in the case of MSP.
+- DeMPT is designed to adapt **LLMs** rather than **small pre-trained model** used in MSP.
 
-We have discussed the differences in lines 547-550 of the paper briefly, and will add a more detailed discussion about this in the revised version.
+We have briefly discussed the differences in lines 547-550 of the paper, and we will provide a more detailed discussion on this in the revised version.
 
 **Q:** Most of the baselines are not document-level MTs, which makes the results less convincing.
 
-**A:** Considering most of existing document-level MT (DMT) studies are Transformer-based, direct comparison to our LLMs-based approach may be unfair, we therefore do not involve the document-level MT baselines. We will involve the SOTA Transformer-based DMT in the revised version if required.
+**A:** Since most existing document-level machine translation (DMT) studies are Transformer-based, a direct comparison to our large language model (LLM)-based approach may be unfair. Therefore, we have not included document-level MT baselines in this study. We will discuss the state-of-the-art (SOTA) Transformer-based DMT model in the revised version.
 
 **Q:** There is no ablation study. The claim for the heuristic method in the decoding phase is not well-supported.
 
-**A:**  On the one hand, we have provided the ablation study about the effect of heuristic decoding-enhanced strategy across all translation tasks in Tables 1 and 2. For example, the ablation results in BLEU  when taking ``llama-2-7b`` as the foundation model as follows:
+**A:**  On the one hand, we have provided the ablation study about the effect of heuristic decoding-enhanced strategy across all translation tasks in Tables 1 and 2. The only difference between DeMPT and MPT is whether they are equipped with the _heuristic decoding-enhanced strategy_ or not. Thus we can handily observe the the effect of heuristic decoding-enhanced strategy by comparing DeMPT with MPT. For example, the heuristic decoding-enhanced strategy gains a + 0.69 BLEU score averaged across five translation directions. Please refer to Tables 1 and 2 for more details about the effect of _heuristic decoding-enhanced strategy_ across different evaluation terms and foundation models. We also provide a detailed ablation study in Appendix D and E to clarify the effect of the different modules in our DeMPT. 
 
-|  Model | ZH-EN | FR-EN | DE-EN | ES-EN | RU-EN |       
-| --- | --- | --- | --- | --- | --- | 
-| **MPT**     | 33.21 | 43.11 | 43.88 | 52.01 | 36.49 |
-| **DeMPT** | 33.89 | 43.71 | 44.69 | 53.10 | 36.55 |
+On the one hand, we have provided an ablation study on the effect of the heuristic _decoding-enhanced strategy_ across all translation tasks in Tables 1 and 2. The sole difference between DeMPT and MPT is whether they are equipped with the heuristic decoding-enhanced strategy or not. Thus, we can readily observe the effect of the heuristic _decoding-enhanced strategy_ by comparing DeMPT with MPT. For instance, the heuristic decoding-enhanced strategy yields an average improvement of +0.69 BLEU score across the five translation directions. Please refer to Tables 1 and 2 for more details on the effect of the _heuristic decoding-enhanced strategy_ across different evaluation metrics and foundation models. Additionally, we provide a comprehensive ablation study in Appendices D and E to clarify the impact of the individual modules in our DeMPT.
 
-The only difference between DeMPT and MPT is whether they are equipped with the _heuristic decoding-enhanced strategy_ or not. Thus we can handily observe the the effect of heuristic decoding-enhanced strategy by comparing DeMPT with MPT. For example, the heuristic decoding-enhanced strategy gains a + 0.69 BLEU score averaged across five translation directions here. Please refer to Tables 1 and 2 for more details about the effect of _heuristic decoding-enhanced strategy_ across different evaluation terms and foundation models. On the other hand, we have constructed another ablation study on ZH-EN translation direction when taking ``bloomz-7b-mt`` as the foundation model, which clarified the effect of three $p$ in _Equ 17_ for _heuristic decoding-enhanced strategy_ :
+On the other hand, we have conducted another ablation study on the ZH-ENtranslation direction using the ``bloomz-7b-mt`` model as the foundation model. This study clarifies the effect of the three $p$  in Equation 17 for the heuristic _decoding-enhanced strategy_:
 
 |  Model | BLEU | COMET | BlonDe |       
 | --- | --- | --- | --- | 
@@ -53,43 +73,43 @@ The only difference between DeMPT and MPT is whether they are equipped with the 
 |  _w/o_ $\hat{p}$ | 32.33 | 0.8629 | 52.04 | 
 |  _w/o_ $\bar{p}$ | 32.11 | 0.8641 | 52.54 | 
 
-We observe that removing $\hat{p}$, i.e., _w/o_ $\hat{p}$, brings a significant degeneration on discourse-related metric, i.e., BlonDe score. This is because the integration of $\hat{p}$ enhances the utilization of the inter-sentence context at the decoding phase. Differently, removing $\bar{p}$ brings the most degeneration in BLEU score. The observation demonstrates our _heuristic decoding-enhanced strategy_ can enhance the utilization of different context information during the decoding phase. Unfortunately, due to this ablation study being behind the deadline for paper submission, we do not present it in the submitted paper. We will add them to the revised version. Finally, we also provide a detailed ablation study in Appendix D and E to clarify the effect of the different modules in our DeMPT.
+We observe that removing $\hat{p}$, i.e., _w/o_ $\hat{p}$, leads to a significant degradation in the discourse-related metric, namely the BlonDe. This is because the integration of $\hat{p}$ enhances the utilization of the inter-sentence context during the decoding phase. On the other hand, removing $\bar{p}$ results in the most substantial degeneration in BLEU metric. This observation demonstrates that our heuristic _decoding-enhanced strategy_ can distinctively improve the utilization of various contexts during the decoding phase. We will include these ablation results in the revised version.
 
 **Q:** The motivation is not clear. Why choose to use prompt tuning-based methods instead of in-context learning for LLMs?
 
 **A:** On the one hand, compared to the in-context learning (ICL) method that does not require fine-tuning parameters, DeMPT needs to introduce trainable parameters, i.e., prompts, to enable the LLMs better play different roles across the different phases. On the other hand, Prompt Tuning also is an effective fine-tuning method for complex generation tasks, such as machine translation ([Li and Liang, 2021; Liu et al., 2022](#1)) . We therefore implement DeMPT upon Prompt Tuning, and we will explore more implementation of DeMPT over different fine-tuning methods in the future.
 
-## Reference
+On the one hand, unlike in-context learning (ICL), which is a prompt engineering approach rather than a fine-tuning method as it does not introduce trainable parameters, DeMPT needs to introduce trainable parameters, namely trainable prompts, to enable large language models (LLMs) to better handle different roles across various phases. On the other hand, Prompt Tuning is an effective fine-tuning method for complex generation tasks, such as machine translation ([Li and Liang, 2021; Liu et al., 2022](#1)). Therefore, we have implemented DeMPT based on Prompt Tuning, and we will explore further implementations of DeMPT leveraging different fine-tuning methods in the future.
+
+## References
 - Xiang Lisa Li and Percy Liang. 2021. Prefix-tuning: Optimizing continuous prompts for generation. In ACL-IJCNLP.
 - Xiao Liu, Kaixuan Ji, Yicheng Fu, Weng Tam, Zhengxiao Du, Zhilin Yang, and Jie Tang. 2022. P-tuning: Prompt tuning can be comparable to fine-tuning across scales and tasks. In  ACL.
 
 
 # Review 3
 
-We sincerely appreciate the kind comments from you. These insightful and considerable suggestions, such as for the description of experimental results and missing related works, are very helpful for improving the soundness and understanding of this paper.
+We sincerely appreciate your kind comments. The insightful and considerate suggestions, such as those regarding the description of experimental results and missing related works, are very helpful in improving the soundness and clarity of this paper.
 
 **Q:** The comments for the experiment results.
 
-**A:** Thanks for your considerable suggestions on the description of Experimental Results. We will rephrase the description in this section
- to make it more concise and the focal points stand out.
+**A:** Thank you for your considerate suggestions regarding the description of the Experimental Results section. We will rephrase the descriptions in this section to make them more concise and ensure the focal points are emphasized.
 
 **Q:** The more complete related works.
 
-**A:** Thank you for pointing out the missing of some related works with a similar hypothesis in our paper, which is crucial for a more comprehensive comparison and understanding of our approach. We will complete the related work in the revised version.
+**A:** Thank you for pointing out the missing related works with a similar hypothesis in our paper. Including these works is crucial for providing a more comprehensive comparison and better understanding of our approach. We will include these related works in the revised version.
 
-**Q:** Calculating statistical significance only for BLEU,
+**Q:** Calculating statistical significance only for BLEU.
 
-**A:** The official toolkits of BlonDe and COMET metrics seem not to support the calculation of statistical significance. So we only report the statistical significance in BLEU. We will survey more about the statistical significance of BlonDe and COMET and complete the statistical significance test in the revised version if it is possible. 
- 
-**Q:** More limitation claim.
+**A:** We use paired bootstrap resampling, which is implemented in the sacreBLEU toolkit, to calculate statistical significance for BLEU scores. The official toolkits for BlonDe and COMET metrics do not seem to support the calculation of statistical significance. Therefore, we have only reported the statistical significance for BLEU scores in this study. However, we will further investigate the calculation of statistical significance for BlonDe and COMET scores, and include their statistical significance testing in the revised version if possible.
 
-**A:** Thank you for this insightful suggestion about experiments with non-English-centric translation direction. We will explore more about this in the future and add a related comment in the Limitation section.
+**Q:** More limitation claim about non-English-centric translation directions.
+
+**A:** Thank you for the insightful suggestion regarding experiments with non-English-centric translation directions. We will further explore this aspect in the future and add a relevant comment in the Limitations section.
 
 **Q:** Why is discussion built upon the bloom model used instead of llama, and only the language pair zh->en and the metrics BLEU and BlonDe
 
-**A:** Considering the consumption of computing source (In practice, we found the experiments built upon Bloom have less consumption of computing and time), we use the Bloom model only in the ZH-EN translation task to discuss our approach in Section 4. We will clarify this in the revised version. And yes, due to lack of space, we present only metrics of BLEU and BlonDe in Section 4. We will try to involve three metrics in the revised version.
-
+**A:** Taking into account the computing resources consumed (In practice, our experiments have shown that models based on Bloom require less computing source and time), we have chosen Bloom model exclusively in the ZH-EN translation task to discuss our approach in Section 4. We intend to make this clarification in the revised version. Additionally, due to space constraints, only the metrics for BLEU and BlonDe are presented in Section 4. We try to include three metrics in revised version.
 
 **Q:**  The graphs in Figure 4 are of different types.
 
-**A:** Thank you for this careful suggestion, we will adjust the graphs in Figure 4  in the revised version.
+**A:** Thank you for the suggestion. We will ensure that the graphs are uniform in type in Figure 4 for the revised version.
