@@ -12,7 +12,7 @@ We kindly ask the reviewer to reconsider their assessment, as we believe there h
 
 > Importantly, the intra-sentence context inherently contains richer parallel semantic information with the target sentence and should be given a higher priority than the inter-sentence context. Consequently, we propose that separately modeling and utilizing the inter- and intra-sentence contexts should explicitly inform LLMs of the document-level context and the current sentence itself, thus being able to prevent the misallocation of attention weights to source-side tokens.
 
-**A:** Since the intra-sentence context, i.e., the source sentence, is semantically identical to the target sentence, it may be natural and intuitive to assign a higher priority of attention to the intra-sentence context compared to the inter-sentence context which contains non-parallel information from the target sentence. The experimental results well demonstrate this, in which our model with decoding-enhanced strategy explicitly improves the weight of the intra-sentence sentence during the decoding phase and performs better than these models with the misallocation of attention weights, i.e., with equal attention weight to inter- and intra-context.
+**A:** Since the intra-sentence context, i.e., the source sentence, is semantically identical to the target sentence. It may be natural and intuitive to assign a higher priority of attention to the intra-sentence context compared to the inter-sentence context which contains non-parallel information from the target sentence. The experimental results well demonstrate this, in which our model with decoding-enhanced strategy explicitly improves the weight of the intra-sentence sentence during the decoding phase and performs better than these models with the misallocation of attention weights, i.e., with equal attention weight to inter- and intra-context.
 
 Therefore, if we have clarified any of the misunderstandings, we kindly ask for reconsideration of the scores.
 
@@ -42,7 +42,7 @@ Thank you for your time and consideration.
 
 # Review 2
 
-We sincerely appreciate the comment from you. Our response to the raised concerns or questions is as follows, with the expectation that they will effectively address the concerns and further improve the soundness of this work.
+We sincerely appreciate the comments from you. Our response to the raised concerns or questions is as follows, with the expectation that they will effectively address the concerns and further improve the soundness of this work.
 
 **Q:** The discussion about the difference between proposed DeMPT and MSP.
 
