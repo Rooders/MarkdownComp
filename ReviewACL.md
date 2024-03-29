@@ -27,7 +27,7 @@ Therefore, if we have clarified any of the misunderstandings, we kindly ask for 
 # To AC 
 To the attention of the ACs and SACs,
 
-We are writing to express our concern regarding the assessment of our work by the Reviewer zLGp due to the **unreasonable questions and suggestions** in this review.
+We are writing to express our concern regarding the assessment of our work by the Reviewer zLGp due to the **unreasonable comments** in this review.
 
 Specifically, the following statements by Reviewer zLGp are particularly telling of the quality of the review.
 
