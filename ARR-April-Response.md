@@ -55,3 +55,21 @@ We sincerely appreciate the comments from you. Our response to the raised concer
 **Q**: How is latency almost the same as the baseline(s) when you need to combine 3 different predictions?
 
 **A**: There is a little misunderstanding due to our unclear description of the three predictions. The compute of $\hat{p}$ and $\bar{p}$ _do not need a full decoding forward_, it only forwards an FFN layer (two linear transfer layers and a ReLU transfer layer), an LLM-Head layer (a linear transfer layer) and a softmax function layer. Therefore, it may be reasonable for little latency compared to the baselines.
+
+**Q**: How would you apply the proposed approach when the source and target documents do not have the same number of sentences?
+
+**A**: A document pair in the training set must have the same segment pair, i.e., parallelity between target and source. Our model is trained over these segment-level training instances. Most of these segment pairs are a sentence pair. However, some of the segment pairs in the training set have different numbers of source and target sentences due to the differences among customs of language expression. Therefore, during inference, the model will automatically decide the number of sentences in translation when giving a source segment.
+
+**Q**: For concatenation, while it's true that a priori the source and context have equal prioritization (L56), could LLMs learn the appropriate prioritization (through their attention mechanisms)?
+
+**A**: We experiment to verify if the LLMs learn appropriate attention (i.e., prioritization) to source and context. In this experimentation, we replace the original inter-sentence context with a random inter-sentence context, i.e., randomly select some sentences from other documents, to generate the target translation. The results are as follows:
+
+|  Model | BLEU | COMET | BlonDe |
+| --- | --- | --- | --- | 
+| CMT-PT _w_ org. CTX   |  30.82 | 0.8504|  49.61 |
+| **CMT-PT _w_ rnd. CTX**   |  | | |
+| DeMPT _w_ org. CTX   | 32.46 | 0.8649 | 50.62 |
+| **DeMPT _w_ rnd. CTX**   |  |  |  |
+
+
+
