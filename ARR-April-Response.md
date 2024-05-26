@@ -62,14 +62,44 @@ We sincerely appreciate the comments from you. Our response to the raised concer
 
 **Q**: For concatenation, while it's true that a priori the source and context have equal prioritization (L56), could LLMs learn the appropriate prioritization (through their attention mechanisms)?
 
-**A**: We experiment to verify if the LLMs learn appropriate attention (i.e., prioritization) to source and context. In this experimentation, we replace the original inter-sentence context with a random inter-sentence context, i.e., randomly select some sentences from other documents, to generate the target translation. The results are as follows:
+**A**: We experiment to verify if the LLMs with the concatenation strategy learn appropriate attention (i.e., prioritization) to source and context. In this experimentation, we replace the original inter-sentence context with a random inter-sentence context, i.e., randomly select some sentences from other documents, to generate the target translation. The results are as follows:
 
 |  Model | BLEU | COMET | BlonDe |
 | --- | --- | --- | --- | 
 | CMT-PT _w_ org. CTX   |  30.82 | 0.8504|  49.61 |
-| **CMT-PT _w_ rnd. CTX**   |  | | |
+| **CMT-PT _w_ rnd. CTX**   | 28.63 | 0.8402| 48.01|
 | DeMPT _w_ org. CTX   | 32.46 | 0.8649 | 50.62 |
-| **DeMPT _w_ rnd. CTX**   |  |  |  |
+| **DeMPT _w_ rnd. CTX**   | 31.76 | 0.8581 | 49.71 |
+
+The random context (_w_ rnd. CTX) consistently degenerates the performance of the CMT-PT and DeMPT models. However, the deterioration of CMT-PT is more serious than that of DeMPT (-2.19/0.0102/1.60 vs -0.70/0.0068/0.91). This may indicate the LLMs with concatenation strategy (CMT-PT) pay inappropriate attention to the random context and lead to more serious deterioration.
+
+## Review 3
+
+**Q**: The efficiency of the proposed work is of concern. Both the proposed multi-phase prompt tuning and the "decoding-enhanced approach" need extra forward-passing costs. (Although Section 4.3 shows the inference time does not increase much.)
+
+**A**: There is a little misunderstanding due to our unclear description of the three predictions in decoding-enhanced approach. The compute of $\hat{p}$ and $\bar{p}$ _do not need a full decoding forward_, it only forwards an FFN layer (two linear transfer layers and a ReLU transfer layer), an LLM-Head layer (a linear transfer layer) and a softmax function layer. Therefore, it may be reasonable for little latency compared to the baselines. We will describe this more clearly in the next version.
+
+**Q**: The original LLM encoding can also capture the differences and significance of inter- and intra-sentence context via a large attention map. The proposed method explicitly divides the encoding processing into three phases and then aggregates the separately encoded hidden states by a gate mechanism (with $\lambda$ hyperparameters). Is it inherently better? Why? **AND**
+The results in Table 1 and Table 2 show the general effectiveness of the proposed method on the translation task using sacreBLEU, COMET, and BlonDe metrics. Is there any deep analysis of the reason for the proposed method utilizing inter- and intra-sentence better? (Section 4.5 and Appendix D can provide some insights though.)
+
+**A**: We conduct experimentation and hope to answer the two questions. Here, we replace the original inter-sentence context with a random inter-sentence context, i.e., randomly select some sentences from other documents, to generate the target translation. The results are as follows:
+
+|  Model | BLEU | COMET | BlonDe |
+| --- | --- | --- | --- | 
+| CMT-PT _w_ org. CTX   |  30.82 | 0.8504|  49.61 |
+| **CMT-PT _w_ rnd. CTX**   | 28.63 | 0.8402| 48.01|
+| DeMPT _w_ org. CTX   | 32.46 | 0.8649 | 50.62 |
+| **DeMPT _w_ rnd. CTX**   | 31.76 | 0.8581 | 49.71 |
+
+The random context (_w_ rnd. CTX) consistently degenerates the performance of the CMT-PT and DeMPT models. However, the deterioration of CMT-PT is more serious than that of DeMPT (-2.19/0.0102/1.60 vs -0.70/0.0068/0.91). This may indicate the multi-phase and decoding-enhanced DeMPT is more robust for utilization of inter-sentence context than CMT-PT. DeMPT can pay more appreciative attention to inter-sentence context and weaken the negative effect of incorrect inter-sentence context.
+
+**Q**: How do we choose better hyperparameters introduced in this paper? Why are the current settings good or optimal? Would the settings be different when using other LLMs or MT datasets?
+
+**Q**: For the experimental effectiveness and limited compute resource, we tune hyperparameters, such as prompt length and learning rate, on ZH-EN translation task based ``bloomz-7b1-mt``, and then simply apply the optimal hyperparameters for other translation tasks (including the tasks based ``llama-2-7b`` ) and do not tune these hyperparameters again on different tasks.
+
+
+
+
 
 
 
