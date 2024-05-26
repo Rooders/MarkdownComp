@@ -69,9 +69,9 @@ We sincerely appreciate the comments from you. Our response to the raised concer
 | CMT-PT _w_ org. CTX   |  30.82 | 0.8504|  49.61 |
 | **CMT-PT _w_ rnd. CTX**   | 28.63 | 0.8402| 48.01|
 | DeMPT _w_ org. CTX   | 32.46 | 0.8649 | 50.62 |
-| **DeMPT _w_ rnd. CTX**   | 31.76 | 0.8581 | 49.71 |
+| **DeMPT _w_ rnd. CTX**   | 31.56 | 0.8581 | 49.71 |
 
-The random context (_w_ rnd. CTX) consistently degenerates the performance of the CMT-PT and DeMPT models. However, the deterioration of CMT-PT is more serious than that of DeMPT (-2.19/0.0102/1.60 vs -0.70/0.0068/0.91). This may indicate the LLMs with concatenation strategy (CMT-PT) pay inappropriate attention to the random context and lead to more serious deterioration.
+The random context (_w_ rnd. CTX) consistently degenerates the performance of the CMT-PT and DeMPT models. However, the deterioration of CMT-PT is more serious than that of DeMPT (-2.19/0.0102/1.60 vs -0.90/0.0068/0.91). This may indicate the LLMs with concatenation strategy (CMT-PT) pay inappropriate attention to the random context and lead to more serious deterioration.
 
 ## Review 3
 
@@ -89,9 +89,9 @@ The results in Table 1 and Table 2 show the general effectiveness of the propose
 | CMT-PT _w_ org. CTX   |  30.82 | 0.8504|  49.61 |
 | **CMT-PT _w_ rnd. CTX**   | 28.63 | 0.8402| 48.01|
 | DeMPT _w_ org. CTX   | 32.46 | 0.8649 | 50.62 |
-| **DeMPT _w_ rnd. CTX**   | 31.76 | 0.8581 | 49.71 |
+| **DeMPT _w_ rnd. CTX**   | 31.56 | 0.8581 | 49.71 |
 
-The random context (_w_ rnd. CTX) consistently degenerates the performance of the CMT-PT and DeMPT models. However, the deterioration of CMT-PT is more serious than that of DeMPT (-2.19/0.0102/1.60 vs -0.70/0.0068/0.91). This may indicate the multi-phase and decoding-enhanced DeMPT is more robust for utilization of inter-sentence context than CMT-PT. DeMPT can pay more appreciative attention to inter-sentence context and weaken the negative effect of incorrect inter-sentence context.
+The random context (_w_ rnd. CTX) consistently degenerates the performance of the CMT-PT and DeMPT models. However, the deterioration of CMT-PT is more serious than that of DeMPT (-2.19/0.0102/1.60 vs -0.90/0.0068/0.91). This may indicate the multi-phase and decoding-enhanced DeMPT is more robust for utilization of inter-sentence context than CMT-PT. DeMPT can pay more appreciative attention to inter-sentence context and weaken the negative effect of incorrect inter-sentence context.
 
 **Q**: How do we choose better hyperparameters introduced in this paper? Why are the current settings good or optimal? Would the settings be different when using other LLMs or MT datasets?
 
