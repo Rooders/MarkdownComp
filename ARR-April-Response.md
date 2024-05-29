@@ -30,7 +30,7 @@ We use a smaller value for $\lambda_1$ here and observe that the BlonDe scores a
 | DeMPT  | 32.46 | 0.8649 | 50.62 | 
 | **merged encoding**| 31.01 | 0.8503 | 49.91 |
 
-We observe 
+We observe the model with **merged encoding** shows slight improvement over CMT-PT but still lags behind MPT and DeMPT, demonstrating the effectiveness of our multi-phase and decode-enhanced strategy.
 
 ## Review 2
 
