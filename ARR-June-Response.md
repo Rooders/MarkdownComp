@@ -10,11 +10,17 @@ We sincerely appreciate your comments in the April and June review circles. Thes
 - Manual analysis of two-stage training, i.e., the system of *Merging 1&2* in Tables 4 and 5, including case studies, error statistics, etc.
 - Manual comparison for addressing discourse problems, such as anaphora and ellipsis.
 
-Meanwhile, we would also appreciate any further suggestions you might have in this regard. And again, if our response can address this issue to some extent, we sincerely hope that you would consider raising your evaluation score for this work. 
+Meanwhile, we would also appreciate any further suggestions you might have in this regard. And again, if our revision in Section 4.3 and Appendix H can address this issue to some extent, we sincerely hope that you would consider raising your evaluation score for this work. 
 
 ## Response for Reviewer 3
 **Q**: The datasets are pretty small. It is still unclear whether concatenation-based approaches would catch up to the proposed approach on larger datasets. The appendix (I) includes some experiments with moderately larger training sets, but these are still far from production-level scale.
-**A**: 
+**A**: In the one hand, due to the scarcity of publicly available parallel discourse corpora, it may be very difficult to verify the effectiveness of our proposed approach on production-level corpora. Therefore, we use a comparable, even larger, dataset scale with some related works, such as the 240K dataset scale used in Wu et al., Zheng et al., and Petrick et al.
+
+In the other hand, we further extend the dataset scale to 1 million in Appendix I to verify the effectiveness of our approach.
+
+
+
+
 
 @article{zheng2024fine,
   title={Fine-tuning Large Language Models for Domain-specific Machine Translation},
