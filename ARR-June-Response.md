@@ -18,10 +18,17 @@ Meanwhile, we would also appreciate any further suggestions you might have in th
 
 In the other hand, we further extend the dataset scale to 1 million in Appendix I to verify the effectiveness of our approach.
 
+|  Model | BLEU | COMET | BlonDe |
+| --- | --- | --- | --- | 
+| **CMT-PT**   | 30.82 | 0.8504 |49.61| 
+|  300K+700K|  |  |  |
+| **DeMPT**   | 32.46 | 0.8649 | 50.62 | 
+|   300K+700K | | | |
+
+From the result in the Table, we observe ... 
 
 
-
-
+#### References
 @article{zheng2024fine,
   title={Fine-tuning Large Language Models for Domain-specific Machine Translation},
   author={Jiawei Zheng, Hanghai Hong, Xiaoli Wang, Jingsong Su, Yonggui Liang and Shikai Wu.},
