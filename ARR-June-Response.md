@@ -14,6 +14,7 @@ Meanwhile, we would also appreciate any further suggestions you might have in th
 
 ## Response for Reviewer 3
 **Q**: The datasets are pretty small. It is still unclear whether concatenation-based approaches would catch up to the proposed approach on larger datasets. The appendix (I) includes some experiments with moderately larger training sets, but these are still far from production-level scale.
+
 **A**: In the one hand, due to the scarcity of publicly available parallel discourse corpora, it may be very difficult to verify the effectiveness of our proposed approach on production-level corpora. Therefore, we use a comparable, even larger, dataset scale with some related works, such as the 240K dataset scale used in Wu et al., Zheng et al., and Petrick et al.
 
 In the other hand, we further extend the dataset scale to 1 million in Appendix I to verify the effectiveness of our approach.
