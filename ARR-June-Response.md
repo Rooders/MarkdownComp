@@ -16,7 +16,7 @@ Meanwhile, we would also appreciate any further suggestions you might have in th
 
 ## Response for Reviewer 3
 
-We sincerely appreciate your comments in the April and June review circles These comments are invaluable for further perfecting this work. Our response in this review round as follows:
+We sincerely appreciate your comments in the April and June review circles. These comments are invaluable for further perfecting this work. Our response in this review round as follows:
 
 **Q**: The datasets are pretty small. It is still unclear whether concatenation-based approaches would catch up to the proposed approach on larger datasets. The appendix (I) includes some experiments with moderately larger training sets, but these are still far from production-level scale.
 
