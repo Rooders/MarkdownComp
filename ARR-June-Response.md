@@ -3,6 +3,8 @@ We sincerely appreciate your kind comments and recognition of our work. We will 
 
 ## Response for Reviewer 2
 
+We are very grateful for your thoughtful revision suggestions on this work during the two rounds of review. Our response in this round as follows:
+
 **Q**: Aside from using automatic evaluation scores on translation tasks, deeper analytical experiments on verifying the benefits of the proposed "inter-sentence" and "intra-sentence" training are needed.
 
 **A**: In the latest revision, we have analyzed the detailed benefits of phase-wise training, i.e., inter-sentence and intra-sentence training, in Section 4.2. In addition to these analyses based on **automatic evaluation scores**, we also report comparative analyses using **human evaluation methods** in *Section 4.3* and *Appendix H*. These manual analyses not only include detailed overall score comparisons and *case studies* but also include *some manual error statistics* (the cases in the proposed approach perform worse than one-phase methods, i.e., without inter-sentence and intra-sentence training). However, due to the high cost of human evaluation, we only conducted these manual evaluations on one-phase training. In the future, we will conduct more manual analyses and comparisons, including but not limited to:
@@ -13,6 +15,9 @@ We sincerely appreciate your kind comments and recognition of our work. We will 
 Meanwhile, we would also appreciate any further suggestions you might have in this regard. And again, if our revision in Section 4.3 and Appendix H can address this issue to some extent, we sincerely hope that you would consider raising your evaluation score for this work. 
 
 ## Response for Reviewer 3
+
+We sincerely appreciate your comments in the April and June review circles These comments are invaluable for further perfecting this work. Our response in this review round as follows:
+
 **Q**: The datasets are pretty small. It is still unclear whether concatenation-based approaches would catch up to the proposed approach on larger datasets. The appendix (I) includes some experiments with moderately larger training sets, but these are still far from production-level scale.
 
 **A**: On the one hand, due to the scarcity of publicly available parallel discourse corpora, it may be very difficult to verify the effectiveness of our proposed approach on production-level corpora. Therefore, we use a comparable, even larger, dataset scale with some related works, such as the 240K dataset scale used by Wu et al., Zheng et al., and Petrick et al.
@@ -28,8 +33,14 @@ On the other hand, we further extend the dataset scale to 1 million in Appendix 
 
 From the result in the Table, we observe ... 
 
-**Q**: Writing and citation error in line 302, 309,481.
-**A**: Thank you for
+**Q**: Writing and citation error in lines 302, 309,481.
+**A**: We appreciate your thoughtful comments on our writing and the missing citations. We will address these issues in the next version.
+
+**Q**: Examine how the proposed approach interacts with few-shot demonstrations.
+**A**: This is an excellent idea. We are also very interested in this question. We are considering the possibility of interaction through an 'instruction-tuning + DeMPT' approach. Specifically, we could first construct an instruction-tuning dataset that incorporates examples of cross-sentence and intra-sentence context utilization. Each example would be a triple: (inter-sentence context, intra-sentence context, target). We plan to explore this idea further in future research and welcome to discuss more with us.
+
+Lastly, if our response and revision in the two review rounds effectively address the concerns you raised, we kindly ask you to consider raising the overall and soundness scores. Thank you again for your kind comments on this work.
+
 
 #### References
 - Document-Level Language Models for Machine Translation. Frithjof Petrick, Christian Herold, Pavel Petrushkov, Shahram  Khadivi and Hermann Ney. WMT. 2023.
