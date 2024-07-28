@@ -1,5 +1,5 @@
 ## Response for Reviewer 1
-We sincerely appreciate your comments in the April and June review circles. These comments are invaluable for further perfecting this work. If our responses and revisions in the two review rounds effectively address the concerns you raised, we kindly ask you to consider reassigning the overall and soundness scores.
+We sincerely appreciate your kind comments and recognition of our work. We will further refine this work by incorporating suggestions from other reviewers.
 
 ## Response for Reviewer 2
 
@@ -15,9 +15,9 @@ Meanwhile, we would also appreciate any further suggestions you might have in th
 ## Response for Reviewer 3
 **Q**: The datasets are pretty small. It is still unclear whether concatenation-based approaches would catch up to the proposed approach on larger datasets. The appendix (I) includes some experiments with moderately larger training sets, but these are still far from production-level scale.
 
-**A**: In the one hand, due to the scarcity of publicly available parallel discourse corpora, it may be very difficult to verify the effectiveness of our proposed approach on production-level corpora. Therefore, we use a comparable, even larger, dataset scale with some related works, such as the 240K dataset scale used in Wu et al., Zheng et al., and Petrick et al.
+**A**: On the one hand, due to the scarcity of publicly available parallel discourse corpora, it may be very difficult to verify the effectiveness of our proposed approach on production-level corpora. Therefore, we use a comparable, even larger, dataset scale with some related works, such as the 240K dataset scale used by Wu et al., Zheng et al., and Petrick et al.
 
-In the other hand, we further extend the dataset scale to 1 million in Appendix I to verify the effectiveness of our approach.
+On the other hand, we further extend the dataset scale to 1 million in Appendix I to verify the effectiveness of our approach.
 
 |  Model | BLEU | COMET | BlonDe |
 | --- | --- | --- | --- | 
@@ -28,6 +28,8 @@ In the other hand, we further extend the dataset scale to 1 million in Appendix 
 
 From the result in the Table, we observe ... 
 
+**Q**: Writing and citation error in line 302, 309,481.
+**A**: Thank you for
 
 #### References
 - Document-Level Language Models for Machine Translation. Frithjof Petrick, Christian Herold, Pavel Petrushkov, Shahram  Khadivi and Hermann Ney. WMT. 2023.
