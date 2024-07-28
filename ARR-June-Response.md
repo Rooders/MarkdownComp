@@ -34,9 +34,11 @@ On the other hand, we further extend the dataset scale to 1 million in Appendix 
 From the result in the Table, we observe ... 
 
 **Q**: Writing and citation error in lines 302, 309,481.
+
 **A**: We appreciate your thoughtful comments on our writing and the missing citations. We will address these issues in the next version.
 
 **Q**: Examine how the proposed approach interacts with few-shot demonstrations.
+
 **A**: This is an excellent idea. We are also very interested in this question. We are considering the possibility of interaction through an 'instruction-tuning + DeMPT' approach. Specifically, we could first construct an instruction-tuning dataset that incorporates examples of cross-sentence and intra-sentence context utilization. Each example would be a triple: (inter-sentence context, intra-sentence context, target). We plan to explore this idea further in future research and welcome to discuss more with us.
 
 Lastly, if our response and revision in the two review rounds effectively address the concerns you raised, we kindly ask you to consider raising the overall and soundness scores. Thank you again for your kind comments on this work.
