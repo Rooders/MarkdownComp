@@ -50,7 +50,7 @@ Lastly, if our response and revision in the two review rounds effectively addres
 
 #### References
 - Document-Level Language Models for Machine Translation. Frithjof Petrick, Christian Herold, Pavel Petrushkov, Shahram  Khadivi and Hermann Ney. WMT. 2023.
-- Adapting large language models for document-level machine translation. Minghao Wu, Thuy-Trang Vu, Lizhen Qu, George Fosterand Gholamreza Haffari, preprint, 2024.
+- Adapting large language models for document-level machine translation. Minghao Wu, Thuy-Trang Vu, Lizhen Qu, George Foster and Gholamreza Haffari, preprint, 2024.
 - Fine-tuning Large Language Models for Domain-specific Machine Translation. Jiawei Zheng, Hanghai Hong, Xiaoli Wang, Jingsong Su, Yonggui Liang and Shikai Wu. preprint. 2024.
 
 
