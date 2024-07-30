@@ -39,7 +39,7 @@ The results show that the larger-scale dataset further widened the performance g
 
 **Q**: Writing and citation error in lines 302, 309,481.
 
-**A**: We appreciate your thoughtful comments on our writing and the missing citations. We will address these issues in the next version.
+**A**: Thank you for your thoughtful comments on our writing and the missing citations. We will address these issues in the next version.
 
 **Q**: Examine how the proposed approach interacts with few-shot demonstrations.
 
