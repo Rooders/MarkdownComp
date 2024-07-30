@@ -27,13 +27,13 @@ On the other hand, we further extend the dataset scale in Appendix I to 1 millio
 
 |  Model | BLEU | COMET | BlonDe |
 | --- | --- | --- | --- | 
-| **CMT-PT**| 30.82 | 0.8504 |49.61| 
-|  300K+200K|  31.21 | 0.8521 |49.88｜
-|  300K+400K|  31.73 | 0.8555 |50.11｜
-|  300K+700K|  31.89 | 0.8559 | 50.23 |
-| **DeMPT**  | 32.46 | 0.8649 | 50.62 | 
-|  300K+200K|  32.77 |0.8663 |50.99｜
-|  300K+400K|  33.56 | 0.8701 |51.47｜
+| **CMT-PT**| 30.82 | 0.8504 |49.61
+|  300K+200K|  31.21 | 0.8521 |49.88
+|  300K+400K|  31.73 | 0.8555 |50.11
+|  300K+700K|  31.89 | 0.8559 | 50.23 
+| **DeMPT**  | 32.46 | 0.8649 | 50.62
+|  300K+200K|  32.77 |0.8663 |50.99
+|  300K+400K|  33.56 | 0.8701 |51.47
 |  300K+700K | 33.91| 0.8721| 51.97|
 
 From the result in the Table, we observe the larger-scale dataset further widened the performance gap between CMT and DeMPT. Our DeMPT surpass CMT-PT by 2.02/0.0162/1.74 in three metrics over 300K+700K dataset scale, while this gap is over 300K dataset scale. Meanwhile, we also observe the performance improvement of CMPT has already converged with the expansion of the data scale. Further increasing the scale of training data may not improve CMPT's performance to narrow the performance gap with DeMPT.
