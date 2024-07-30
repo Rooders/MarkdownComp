@@ -1,9 +1,9 @@
 ## Response for Reviewer 1
-We sincerely appreciate your kind comments and recognition of our work. We will further refine this work by incorporating suggestions from other reviewers.
+Thank you very much for your kind comments and for recognizing our work. We’re also glad to hear that you believe our current version is free of significant weaknesses. If you have any further concerns, welcome to discuss with us.
 
 ## Response for Reviewer 2
 
-We are very grateful for your thoughtful revision suggestions on this work during the two rounds of review. Our response in this round as follows:
+We are very grateful for your thoughtful revision suggestions on this work during the two rounds of review. Our response in this round is as follows:
 
 **Q**: Aside from using automatic evaluation scores on translation tasks, deeper analytical experiments on verifying the benefits of the proposed "inter-sentence" and "intra-sentence" training are needed.
 
@@ -12,16 +12,15 @@ We are very grateful for your thoughtful revision suggestions on this work durin
 - Manual analysis of two-stage training, i.e., the system of *Merging 1&2* in Tables 4 and 5, including case studies, error statistics, etc.
 - Manual comparison for addressing discourse problems, such as anaphora and ellipsis.
 
-Meanwhile, we would also appreciate any further suggestions you might have in this regard. And again, if our revision in Section 4.3 and Appendix H can address this issue to some extent, we sincerely hope that you would consider raising your evaluation score for this work. 
+Meanwhile, we would also appreciate any further suggestions you might have in this regard. Again, if our revision in Section 4.3 and Appendix H can address this issue to some extent, we sincerely hope that you would consider raising your evaluation score for this work. 
 
 ## Response for Reviewer 3
 
-
-We sincerely appreciate your comments in the April and June review circles. These comments are invaluable for further perfecting this work. Our response in this review round as follows:
+We sincerely appreciate your comments in both the April and June review circles. We are thankful that our revisions have successfully addressed most of the issues identified in the earlier version. Our response in this review round is as follows:
 
 **Q**: The datasets are pretty small. It is still unclear whether concatenation-based approaches would catch up to the proposed approach on larger datasets. The appendix (I) includes some experiments with moderately larger training sets, but these are still far from production-level scale.
 
-**A**: On the one hand, due to the scarcity of publicly available parallel discourse corpora, it may be very difficult to verify the effectiveness of our proposed approach on production-level corpora. Therefore, we use a comparable, even larger, dataset scale with some related works, such as the 240K dataset scale used by Wu et al., Zheng et al., and Petrick et al.
+**A**: On the one hand, the limited availability of publicly accessible parallel document-level corpora can make it quite challenging to assess the effectiveness of our proposed approach with production-level data. The dataset used in our experiments is comparable to, or even larger than, the parallel document-level dataset utilized in some related work, e.g., Wu et al., Zheng et al., and Petrick et al.
 
 On the other hand, we further extend the dataset scale in Appendix I to 1 million and verify the effectiveness of our approach.
 
@@ -36,7 +35,7 @@ On the other hand, we further extend the dataset scale in Appendix I to 1 millio
 |  300K+400K|  33.56 | 0.8701 |51.47
 |  300K+700K | 33.91| 0.8721| 51.97|
 
-From the results, we observe that the larger-scale dataset further widened the performance gap between CMT and DeMPT. Our DeMPT outperforms CMT-PT by 1.64/0.0145/1.01 across three metrics at the 300K dataset scale, while the gap is enlarged to 2.02/0.0162/1.74 with the 300K+700K training dataset. Our DeMPT surpasses CMT-PT by 2.02/0.0162/1.74 in three metrics over 300K+700K dataset scale, while the gap is 1.64/0.0145/1.01 over the 300K training dataset. Meanwhile, we also observe the performance improvement of CMPT has already converged with the expansion of the data scale. Further increasing the scale of training data may not improve CMPT's performance to narrow the performance gap with DeMPT.
+The results show that the larger-scale dataset further widened the performance gap between CMT and DeMPT. Our DeMPT outperforms CMT-PT by 1.64/0.0145/1.01 across three metrics at the 300K dataset scale, while the gap is enlarged to 2.02/0.0162/1.74 with the 300K+700K training dataset. Our DeMPT surpasses CMT-PT by 2.02/0.0162/1.74 in three metrics over 300K+700K dataset scale, while the gap is 1.64/0.0145/1.01 over the 300K training dataset. Meanwhile, we also observe the performance improvement of CMPT has already converged with the expansion of the data scale. Further increasing the scale of training data may not improve CMPT's performance to narrow the performance gap with DeMPT.
 
 **Q**: Writing and citation error in lines 302, 309,481.
 
