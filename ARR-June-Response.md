@@ -36,7 +36,7 @@ On the other hand, we further extend the dataset scale in Appendix I to 1 millio
 |  300K+400K|  33.56 | 0.8701 |51.47
 |  300K+700K | 33.91| 0.8721| 51.97|
 
-From the result in the Table, we observe the larger-scale dataset further widened the performance gap between CMT and DeMPT. Our DeMPT surpass CMT-PT by 2.02/0.0162/1.74 in three metrics over 300K+700K dataset scale, while this gap is over 300K dataset scale. Meanwhile, we also observe the performance improvement of CMPT has already converged with the expansion of the data scale. Further increasing the scale of training data may not improve CMPT's performance to narrow the performance gap with DeMPT.
+From the results, we observe that the larger-scale dataset further widened the performance gap between CMT and DeMPT. Our DeMPT outperforms CMT-PT by 1.64/0.0145/1.01 across three metrics at the 300K dataset scale, while the gap is enlarged to 2.02/0.0162/1.74 with the 300K+700K training dataset. Our DeMPT surpasses CMT-PT by 2.02/0.0162/1.74 in three metrics over 300K+700K dataset scale, while the gap is 1.64/0.0145/1.01 over the 300K training dataset. Meanwhile, we also observe the performance improvement of CMPT has already converged with the expansion of the data scale. Further increasing the scale of training data may not improve CMPT's performance to narrow the performance gap with DeMPT.
 
 **Q**: Writing and citation error in lines 302, 309,481.
 
