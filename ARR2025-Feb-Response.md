@@ -10,7 +10,7 @@ Thank you very much for your kind comments and for recognizing our work. We resp
 
 **Q:** _Why did you choose only LLaMa and GPT-4o-mini out of four originally tested models_?
 
-**A:** Considering the computational resource consumption and API costs, our ablation study maintains the same model selection setup as other analytical experiments in Section 5, in which we selected one lightweight open-source model and a closed-source model with a more cost-effective API from the four candidate models as representatives for the experiments.
+**A:** Considering the computational resource consumption and API costs, our ablation study maintains the same model selection setup as other analytical experiments in Section 5, in which we selected a lightweight open-source model and a closed-source model with a more cost-effective API from the four candidate models as representatives for the experiments.
 
 Additionally, we have supplemented more comprehensive ablation experiments in the other two models, and the results are as follows:
 
@@ -32,7 +32,28 @@ We will include the new experimental results in the revised version.
 
 
 # Review 2
-There is one critical baseline that is needed to understand how promising this technique is. You use ASR-SMT (sentence-level translation) and ASR-DMT (document-level translation, using all preceding context) as your baselines. What about using DMT with a fixed number of preceding segments? The equivalent would be DoCIA with only MT stage and a fixed short-term-context of m segments. This is a basic technique for document-level MT that should have been included in the comparison.
+
+We are very grateful for your thoughtful revision suggestions on this work. Our point-to-point response to your concerns is as follows:
+
+**Q:** What about using DMT with a fixed number of preceding segments?
+
+**A:** This is an insightful suggestion. Following your suggestion, we implement a DMT baseline with a fixed number of context segments. For a fair comparison, we set the fixed context number as $m+n$, which is the same as our DoCIA. The detailed experimental result is as follows:
+| **System**             | **⇒ De** |          | **⇒ It** |          | **⇒ Pt** |          | **⇒ Ru** |          | **⇒ Ro** |          | **Average** |          |
+|------------------------|-------------|----------|-------------|----------|-------------|----------|-------------|----------|-------------|----------|-------------|----------|
+|                        | *s*-Comet   | *d*-Comet| *s*-Comet   | *d*-Comet| *s*-Comet   | *d*-Comet| *s*-Comet   | *d*-Comet| *s*-Comet   | *d*-Comet| *s*-Comet   | *d*-Comet|
+| **`LLaMA-3.1-8B`**     |             |          |             |          |             |          |             |          |             |          |             |          |
+
+| ASR-DMT                | 77.88       | 5.712    | 79.79       | 5.651    | 80.69       | 5.477    | 76.99       | 5.211    | 79.01       | 5.401    | 78.87       | 5.490    |
+| · DoCIAₐ₋ₘ₋ₚ           | _**79.15**_ | **5.912**| _**80.88**_ | **5.909**| 81.75       | **5.757**| _**78.39**_ | **5.556**| _**80.54**_ | **5.734**| _**80.15**_ | **5.774**|
+| **`LLaMA-3.1-70B`**    |             |          |             |          |             |          |             |          |             |          |             |          |
+| ASR-DMT                | 81.54       | 6.143    | 82.36       | 5.976    | 82.85       | 5.745    | 80.99       | 5.867    | 83.15       | 5.979    | 82.17       | 5.942    |
+| · DoCIAₐ₋ₘ₋ₚ           | 82.63       | **6.373**| 83.66       | **6.264**| _**83.99**_ | **6.037**| 82.69       | **6.168**| _**85.32**_ | **6.365**| _**83.66**_ | **6.241**|
+| **`GPT-4o-mini`**      |             |          |             |          |             |          |             |          |             |          |             |          |
+| ASR-DMT                | 82.42       | 6.108    | 83.52       | 5.833    | 83.32       | 5.943    | 82.80       | 5.948    | 84.82       | 6.018    | 83.37       | 5.970    |
+| · DoCIAₐ₋ₘ₋ₚ           | 83.64       | **6.444**| _**84.76**_ | **6.387**| 84.51       | **6.297**| _**84.32**_ | **6.286**| _**86.34**_ | **6.424**| _**84.71**_ | **6.368**|
+
+
+
 
 The writing style and language is overly complicated at times, and this makes the explanation hard to follow. The paper would benefit from a careful rewrite to improve clarity and correctness. See for example lines 246-249 and 346.
 Figure 2 can be improved. For example, the determining module is labelled as "identify". This verb does not help the reader to understand what is being done here. Consider that the determining module is basically making an "accept/reject" decision over the proposed ASR/MT correction. For ASR/MT context, the context is labelled as "retrieval". I would argue that retrieval should be put instead in the blue arrow going from Document-level Context to Long- and Short-Memory Context.
