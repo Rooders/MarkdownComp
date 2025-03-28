@@ -19,9 +19,9 @@ Additionally, we have supplemented more comprehensive ablation experiments in th
 |                        | *s*-Comet   | *d*-Comet| *s*-Comet   | *d*-Comet|
 | **`LLaMA-3.1-70B`**     |             |          |             |          |
 | DoCIA                  | 82.63       | 6.373    | 82.69       | 6.168    |
-|     *w/o* R.D.         |        | 5.812    | 77.50       | 5.431    |
-|     *w/o* S.C.         | 78.63       | 5.792    | 77.81       | 5.331    |
-|     *w/o* L.C.         | 78.41       | 5.761    | 77.88       | 5.311    |
+|     *w/o* R.D.         | 81.97       | 6.299    | 81.81       | 6.037    |
+|     *w/o* S.C.         | 82.23       | 6.198    | 82.11       | 5.901    |
+|     *w/o* L.C.         | 82.35       | 6.211    | 82.19       | 5.863    |
 | **`GPT-3.5-turbo`**      |             |          |             |          |
 | DoCIA                  | 82.95       | 6.192    | 81.97       | 5.841    |
 |     *w/o* R.D.         | 82.66       | 6.299    | 83.11       | 6.116    |
