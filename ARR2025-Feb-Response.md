@@ -17,16 +17,16 @@ Additionally, we have supplemented more comprehensive ablation experiments in th
 | **System**             | **En ⇒ De** |          | **En ⇒ Ru** |          |
 |------------------------|-------------|----------|-------------|----------|
 |                        | *s*-Comet   | *d*-Comet| *s*-Comet   | *d*-Comet|
-| **`LLaMA-3.1-70B`**     |             |          |             |          |
+| **`LLaMA-3.1-70B`**    |             |          |             |          |
 | DoCIA                  | 82.63       | 6.373    | 82.69       | 6.168    |
 |     *w/o* R.D.         | 81.97       | 6.299    | 81.81       | 6.037    |
 |     *w/o* S.C.         | 82.23       | 6.198    | 82.11       | 5.901    |
 |     *w/o* L.C.         | 82.35       | 6.211    | 82.19       | 5.863    |
-| **`GPT-3.5-turbo`**      |             |          |             |          |
+| **`GPT-3.5-turbo`**    |             |          |             |          |
 | DoCIA                  | 82.95       | 6.192    | 81.97       | 5.841    |
-|     *w/o* R.D.         | 82.66       | 6.299    | 83.11       | 6.116    |
-|     *w/o* S.C.         | 83.11       | 6.231    | 83.88       | 6.061    |
-|     *w/o* L.C.         | 83.01       | 6.201    | 83.77       | 6.011    |
+|     *w/o* R.D.         | 82.19       | 6.104    | 81.01       | 5.806    |
+|     *w/o* S.C.         | 82.46       | 6.037    | 81.23       | 5.711    |
+|     *w/o* L.C.         | 82.31       | 6.072    | 81.35       | 5.694    |
 
 We will include the new experimental results in the revised version.
 
