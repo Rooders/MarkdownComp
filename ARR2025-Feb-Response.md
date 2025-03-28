@@ -2,7 +2,9 @@
 ##Review 1
 Generally, I do not have found any major concerns about the submission, I have only these two points:
 
-Could you provide a statistical test for the main results (Table 1)?
+**Q:** _Could you provide a statistical test for the main results (Table 1)_?
+Thank you for your suggestion. Since COMET does not support statistical significance testing, we currently do not provide significance tests for COMET scores. However, we will consider implementing significance testing based on BLEU scores in the revised version.
+
 Ablation study: Why did you choose only LLaMa and GPT-4o-mini out of four originally tested models?
 Line 148: the the
 
