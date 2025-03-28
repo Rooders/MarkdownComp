@@ -2,11 +2,34 @@
 ##Review 1
 Generally, I do not have found any major concerns about the submission, I have only these two points:
 
-**Q:** _Could you provide a statistical test for the main results (Table 1)_?
-Thank you for your suggestion. Since COMET does not support statistical significance testing, we currently do not provide significance tests for COMET scores. However, we will consider implementing significance testing based on BLEU scores in the revised version.
+Thank you very much for your kind comments and for recognizing our work. We respond to two concerns you mentioned as follows:
 
-Ablation study: Why did you choose only LLaMa and GPT-4o-mini out of four originally tested models?
-Line 148: the the
+**Q:**  The statistical test in the main results (Table 1).
+
+**A:** Since COMET does not support statistical significance testing, we currently do not provide significance tests for COMET scores. However, we will consider report significance testing based on BLEU scores in the revised version.
+
+**Q:** _Why did you choose only LLaMa and GPT-4o-mini out of four originally tested models_?
+
+**A:** Considering the computational resource consumption and API costs, our ablation study maintains the same model selection setup as other analytical experiments in Section 5, in which we selected one lightweight open-source model and a closed-source model with a more cost-effective API from the four candidate models as representatives for the experiments.
+
+Additionally, we have supplemented more comprehensive ablation experiments in the other two models, and the results are as follows:
+
+| **System**             | **En ⇒ De** |          | **En ⇒ Ru** |          |
+|------------------------|-------------|----------|-------------|----------|
+|                        | *s*-Comet   | *d*-Comet| *s*-Comet   | *d*-Comet|
+| **`LLaMA-3.1-70B`**     |             |          |             |          |
+| DoCIA                  | 82.63       | 6.373    | 82.69       | 6.168    |
+|     *w/o* R.D.         |        | 5.812    | 77.50       | 5.431    |
+|     *w/o* S.C.         | 78.63       | 5.792    | 77.81       | 5.331    |
+|     *w/o* L.C.         | 78.41       | 5.761    | 77.88       | 5.311    |
+| **`GPT-3.5-turbo`**      |             |          |             |          |
+| DoCIA                  | 82.95       | 6.192    | 81.97       | 5.841    |
+|     *w/o* R.D.         | 82.66       | 6.299    | 83.11       | 6.116    |
+|     *w/o* S.C.         | 83.11       | 6.231    | 83.88       | 6.061    |
+|     *w/o* L.C.         | 83.01       | 6.201    | 83.77       | 6.011    |
+
+We will include the new experimental results in the revised version.
+
 
 # Review 2
 There is one critical baseline that is needed to understand how promising this technique is. You use ASR-SMT (sentence-level translation) and ASR-DMT (document-level translation, using all preceding context) as your baselines. What about using DMT with a fixed number of preceding segments? The equivalent would be DoCIA with only MT stage and a fixed short-term-context of m segments. This is a basic technique for document-level MT that should have been included in the comparison.
