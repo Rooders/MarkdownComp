@@ -100,28 +100,30 @@ We will make a clear description about the offline and online setting in the rev
 | **System**             | **En ⇒ De** |          | **En ⇒ Ru** |          |
 |------------------------|-------------|----------|-------------|----------|
 |                        | *s*-Comet   | *d*-Comet| *s*-Comet   | *d*-Comet|
-| **`LLaMA-3.1-70B`**    |             |          |             |          |
-| DoCIA (*w/* BM25)      | 82.63       | 6.373    | 82.69       | 6.168    |
-|     *w/* ER            | 82.81       | 6.377    | 82.97       | 6.181    |
-| **`GPT-3.5-turbo`**    |             |          |             |          |
-| DoCIA(*w/* BM25)       | 82.95       | 6.192    | 81.97       | 5.841    |
-|     *w/* ER            | 83.23       | 6.187    | 82.19       | 5.839    |
+| **`LLaMA-3.1-7B`**    |             |          |             |          |
+| DoCIA (*w/* BM25)      | 79.15       | 5.912    | 78.39      | 5.556    |
+|     *w/* ER            | 79.35       | 5.911    | 78.62       |5.537    |
+| **`GPT-4o-mini`**    |             |          |             |          |
+| DoCIA(*w/* BM25)       | 83.64       | 6.444    | 84.32       | 6.286    |
+|     *w/* ER            | 83.81       | 6.411    | 84.35       | 6.273   |
 
 We observe that embedding-based retrieval performs better in $s$-Comet but is limited in $d$-Comet. We will do more deep analysis about this in the future.  
 
 **Q:** Using Speech QE to perform the proposed refinement determination mechanism.
 
-**A:** Thank you for this great suggestion! We follow your suggestion and use the Speech QE to perform our determination mechanism, the results as follows:
+**A:** Thank you for this great suggestion! We follow your suggestion and use the Speech QE to perform our determination mechanism. More specifically, we take the refinement the results as follows:
 
-| **System**             | **En ⇒ De** |          | **En ⇒ Ru** |          |
-|------------------------|-------------|----------|-------------|----------|
-|                        | *s*-Comet   | *d*-Comet| *s*-Comet   | *d*-Comet|
-| **`LLaMA-3.1-70B`**    |             |          |             |          |
-| DoCIA (*w/* Edit-Dist.)      | 82.63       | 6.373    | 82.69       | 6.168    |
-|     *w/* Speech QE            | 82.81       | 6.377    | 82.97       | 6.181    |
-| **`GPT-3.5-turbo`**    |             |          |             |          |
-| DoCIA(*w/* Edit-Dist.) | 82.95       | 6.192    | 81.97       | 5.841    |
-|     *w/* Speech QE     | 83.23       | 6.187    | 82.19       | 5.839    |
+| **System**             | **En ⇒ De** |          |
+|------------------------|-------------|----------|
+|                        | *s*-Comet   | *d*-Comet| 
+| **`LLaMA-3.1-70B`**    |             |          |
+| DoCIA (*w/* Edit-Dist.)| 79.15       | 5.912    |
+|     *w/* Speech QE     | 79.11       | 5.919    |
+| **`GPT-3.5-turbo`**    |             |          |
+| DoCIA(*w/* Edit-Dist.) | 83.64       | 6.444    |
+|     *w/* Speech QE     | 83.81       | 6.532    |
+
+We observe Speech QE does not gain more improvement compared to the edit-distance method. We hypothesize that this discrepancy may stem from the fact that their quality estimation (QE) model was not specifically trained on the MuTSC dataset. While this limitation warrants further investigation, we recognize the methodological value of their approach and intend to conduct systematic experiments in future work.
 
 **Q:** The state of the audio segmenter and the impact of segmentation of long-form audio on ST outputs.
 
