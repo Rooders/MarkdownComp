@@ -38,9 +38,9 @@ We are very grateful for your thoughtful revision suggestions on this work. Our 
 **Q:** What about using DMT with a fixed number of preceding segments?
 
 **A:** This is an insightful suggestion. Following your suggestion, we implement a DMT baseline with a fixed number of context segments ($$\text{ASR-DMT}_{fix}$$). For a fair comparison, we set the fixed context number as $m+n$, which is the same as our DoCIA. The detailed experimental result is as follows:
-| **System**             | **En ⇒ De** |          | **En ⇒ It** |          | **En ⇒ Pt** |          | **En ⇒ Ru** |          | **En ⇒ Ro** |          | **Average** |          |
+| **System**             | **⇒ De** |          | **⇒ It** |          | **⇒ Pt** |          | **⇒ Ru** |          | **⇒ Ro** |          | **Avg** |          |
 |------------------------|-------------|----------|-------------|----------|-------------|----------|-------------|----------|-------------|----------|-------------|----------|
-|                        | *s*-Comet   | *d*-Comet| *s*-Comet   | *d*-Comet| *s*-Comet   | *d*-Comet| *s*-Comet   | *d*-Comet| *s*-Comet   | *d*-Comet| *s*-Comet   | *d*-Comet|
+|                        | *s*-Co.   | *d*-Co.| *s*-Co.   | *d*-Co.| *s*-Co.   | *d*-Co.| *s*-Co.   | *d*-Co.| *s*-Co.   | *d*-Co.| *s*-Co.   | *d*-Co.|
 | **`LLaMA-3.1-8B`**     |             |          |             |          |             |          |             |          |             |          |             |          |
 | ASR-DMT                | 77.88       | 5.712    | 79.79       | 5.651    | 80.69       | 5.477    | 76.99       | 5.211    | 79.01       | 5.401    | 78.87       | 5.490    |
 | DoCIAₐ₋ₘ₋ₚ           | _**79.15**_ | **5.912**| _**80.88**_ | **5.909**| 81.75       | **5.757**| _**78.39**_ | **5.556**| _**80.54**_ | **5.734**| _**80.15**_ | **5.774**|
