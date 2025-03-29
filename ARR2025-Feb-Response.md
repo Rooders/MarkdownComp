@@ -35,7 +35,6 @@ We will include the new experimental results in the revised version.
 We are very grateful for your thoughtful revision suggestions on this work. Our point-to-point response to your concerns is as follows:
 
 **Q:** What about using DMT with a fixed number of preceding segments?
-
 **A:** This is an insightful suggestion. Following your suggestion, we implement a DMT baseline with a fixed number of context segments ($$\text{ASR-DMT}_{fix}$$). For a fair comparison, we used the fixed $m+n$ proceeding segment as context. The number of context segments is the same as that used in our DoCIA. The detailed experimental result is as follows:
 | **System**             | **⇒ De** |          | **⇒ It** |          | **⇒ Pt** |          | **⇒ Ru** |          | **⇒ Ro** |          | **Avg** |          |
 |------------------------|-------------|----------|-------------|----------|-------------|----------|-------------|----------|-------------|----------|-------------|----------|
@@ -60,39 +59,13 @@ We are very grateful for your thoughtful revision suggestions on this work. Our 
 The results show DMT with a fixed number of context segments is slightly better more than with all context segments but still behind our DoCIA. We will include the new results in our revised version.
 
 **Q:** Writing Style & Clarity  
+**A:** We sincerely appreciate your careful suggestions in paper writing, they are useful for improving our work soundness. We will follow these suggestions and take a throughout proofreading. Including but not limited to the follows:
+- Adjust the module name and position Fig. 1.
+- Clarify our sampling search strategy.
+- Clarify the DoCIAₐ₋ₘ₋ₚ is our full DoCIA.
 
-▸ **Modifications Implemented:**  
-- Streamlined explanations in Sections 3.1 and 4.2 (including lines 246-249 and 346)  
-- Simplified technical jargon with concrete workflow examples  
-- Engaged professional language editing service for full manuscript polish  
+**Q:** Writing Style & Clarity
 
----
-
-## 2. Figure 2 Improvements  
-*"The determining module is labelled as 'identify'... retrieval should be in the blue arrow..."*
-
-▸ **Revisions:**  
-- Renamed module: `Identify` → **"Accept/Reject Decision"**  
-- Relabeled arrow: Context interaction → **"Document-level Retrieval"**  
-- Added footnote: *"Retrieval denotes dynamic context selection via cross-attention mechanisms"*  
-
----
-
-## 3. Search Strategy Clarification  
-*"All equations use argmax... no mention of search strategy."*
-
-▸ **Added in Section 2.1:**  
-> "We employ greedy decoding for all argmax operations, as beam search (size=5) showed marginal COMET improvement (+0.12) with 3× computational overhead."
-
----
-
-## 4. Configuration Clarification  
-*"Is this the full DoCIA (a-m-p)? Should be stated..."*
-
-▸ **Added in Section 4.1:**  
-> "All baseline comparisons use complete DoCIA_{a-m-p} configuration. Component ablation studies (DoCIA_a/DoCIA_{a-m}) are detailed in Table 3 and Appendix D."
-
----
 
 ## 5. Online/Offline Mode Explanation
 
