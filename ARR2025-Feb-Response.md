@@ -87,7 +87,50 @@ We will make a clear description about the offline and online setting in the rev
 
 # Review 3
 
-**Q:** Missing citations for some related works and more  state of 
+**Q:** Missing citations for some related works and more appropriate contribution state.
+**A:** Thank you for your professional suggestions. We will introduce the missing citation you mentioned in the related work Section and restate the contribution in our revised version. Although [1] also proposes dividing ST into four stages (involves two refinement processes), there are some significant differences:  
+
+1. **ASR Refinement Stage**: They utilize the N-best results from the same audio segment as additional information for refinement, whereas we focus on leveraging *inter-segment context* for refinement.  
+2. **Translation Process**: Their translation operates at the sentence level without incorporating cross-sentence context, while we introduce *cross-sentence context* to enhance translation.  
+3. **Scenario Focus**: Their work primarily targets *offline scenarios*, whereas our approach is also designed for online scenarios and emphasizes the contextual integration benefits.  
+
+**Q:** Using the embeddings-based retrieval techniques.
+**A:** Thank you for this interesting suggestion. We use the **embeding** to perform our context retrival and the experimental results as follows:
+
+| **System**             | **En ⇒ De** |          | **En ⇒ Ru** |          |
+|------------------------|-------------|----------|-------------|----------|
+|                        | *s*-Comet   | *d*-Comet| *s*-Comet   | *d*-Comet|
+| **`LLaMA-3.1-70B`**    |             |          |             |          |
+| DoCIA (*w/* BM25)      | 82.63       | 6.373    | 82.69       | 6.168    |
+|     *w/* ER            | 82.81       | 6.377    | 82.97       | 6.181    |
+| **`GPT-3.5-turbo`**    |             |          |             |          |
+| DoCIA(*w/* BM25)       | 82.95       | 6.192    | 81.97       | 5.841    |
+|     *w/* ER            | 83.23       | 6.187    | 82.19       | 5.839    |
+
+We observe that embedding-based retrieval performs better in $s$-Comet but is limited in $d$-Comet. We will do more deep analysis about this in the future.  
+
+**Q:** Using Speech QE to perform the proposed refinement determination mechanism.
+
+**A:** Thank you for this great suggestion! We follow your suggestion and use the Speech QE to perform our determination mechanism, the results as follows:
+
+| **System**             | **En ⇒ De** |          | **En ⇒ Ru** |          |
+|------------------------|-------------|----------|-------------|----------|
+|                        | *s*-Comet   | *d*-Comet| *s*-Comet   | *d*-Comet|
+| **`LLaMA-3.1-70B`**    |             |          |             |          |
+| DoCIA (*w/* Edit-Dist.)      | 82.63       | 6.373    | 82.69       | 6.168    |
+|     *w/* Speech QE            | 82.81       | 6.377    | 82.97       | 6.181    |
+| **`GPT-3.5-turbo`**    |             |          |             |          |
+| DoCIA(*w/* Edit-Dist.) | 82.95       | 6.192    | 81.97       | 5.841    |
+|     *w/* Speech QE     | 83.23       | 6.187    | 82.19       | 5.839    |
+
+**Q:** The state of the audio segmenter and the impact of segmentation of long-form audio on ST outputs.
+
+**Q:** The discussion of online and offline setting is unclear. 
+
+
+
+
+
 
 
 
