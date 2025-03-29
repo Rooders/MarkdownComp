@@ -66,11 +66,21 @@ The results show DMT with a fixed number of context segments is slightly better 
 
 **Q:** Clarity of the offline and online setting
 
-**A:** 
+**A:** We detailed the online and offline setting as follows:
 
-**Offline DoCIA** prioritizes **parallel processing** for efficiency but requires all audio segments of a speech to be preloaded. For example, when processing a speech with *n* segments, the system first extracts their initial ASR results (*̄s₁, ̄s₂, ..., ̄sₙ*) in parallel. All segments then undergo simultaneous context-aware refinement (e.g., refining *̄sᵢ* into *sᵢ*). However, a critical limitation arises: the refinement of the *i*-th segment can only rely on the **unrefined ASR results** of preceding segments (*{̄s_{<i}}*), even if those results contain errors. This static context dependency restricts iterative improvement of semantic coherence across segments. The same logic applies to translation refinement.  
+**Offline Setting** prioritizes **parallel processing** for efficiency but requires all audio segments of a speech to be preloaded. For example, when processing a speech with $$n$$ segments, we first extract their initial ASR results in parallel and all ASR of segments then undergo context-aware refinement in parallel. Therefore, the refinement of the $$i$$-th segment, i.e., $$\bar{s}\_{i}$$ to $${s}\_{i}$$, rely on the context consisted of **unrefined ASR results** of preceding segments, i.e., $${\bar{s}_{<i}}$$). The same logic applies to translation and translation refinement processes.  
 
-**Online DoCIA**, in contrast, adopts **sequential processing** for real-time applications. It processes segments incrementally: the initial ASR result (*̄sᵢ*) of the *i*-th segment is generated only after all preceding segments (*1 to i-1*) have been fully refined. For instance, refining *̄sᵢ* into *sᵢ* depends on the **final refined results** of preceding segments (*{s_{<i}}*). This dynamic context ensures higher accuracy but introduces latency, as each segment must wait for its predecessors to complete the entire pipeline. Translation refinement follows the same sequential dependency.  
+**Online Setting** adopts the **sequential processing** and is similar to simultaneous translation. The refinement of the $$i$$-th segment ASR starts when the refinements of all preceding segments are done. Because the refinement of  $$\bar{s}\_{i}$$ to $$s\_{i}$$ depends on the **final refined ASR results** of preceding segments ($$s_{<i}$$). This dynamic context ensures higher accuracy but introduces latency, as each segment must wait for its predecessors to complete the entire pipeline.
+
+The differece bettween them as follow:
+
+| Dimension       | Offline Setting                        | Online Setting                        |
+|-----------------|--------------------------------|-------------------------------|
+| **Processing Logic** | all segment parallel processing | Segment-by-segment sequential processing |
+| **Used Context**      | Static (unrefined results $$\bar{s}_{<i}$$)      | Dynamic (refined results $$s_{<i}$$)      |
+| **Latency**      | Low (parallel computation)      | High (sequential dependency)   |
+| **Use Case**     | Non-real-time post-processing translation   | Real-time simultaneous translation      |
+
 
 **Key Takeaway**:  
 - **Offline** trades **context freshness** (using unrefined context) for parallel speed, ideal for non-real-time tasks (e.g., post-processing recordings).  
