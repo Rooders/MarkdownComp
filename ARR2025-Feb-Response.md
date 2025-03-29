@@ -62,17 +62,18 @@ The results show DMT with a fixed number of context segments is slightly better 
 **A:** We sincerely appreciate your careful suggestions in paper writing. They are useful for improving the correctness and soundness of our work. We will follow these suggestions and do a throughout proofreading. Including but not limited to the follows:
 - Adjust the module name and position Fig. 1.
 - Clarify our sampling search strategy.
-- Clarify the DoCIAₐ₋ₘ₋ₚ is our full DoCIA.
+- Clarify that the DoCIAₐ₋ₘ₋ₚ is our full DoCIA.
+- Clarify that MuST-C v3 is used in our paper.
 
 **Q:** Clarity of the offline and online setting
 
 **A:** We detailed the online and offline setting as follows:
 
-**Offline Setting** prioritizes **parallel processing** for efficiency but requires all audio segments of a speech to be preloaded. For example, when processing a speech with $$n$$ segments, we first extract their initial ASR results in parallel and all ASR of segments then undergo context-aware refinement in parallel. Therefore, the refinement of the $$i$$-th segment, i.e., $$\bar{s}\_{i}$$ to $${s}\_{i}$$, rely on the context consisted of **unrefined ASR results** of preceding segments, i.e., $${\bar{s}_{<i}}$$). The same logic applies to translation and translation refinement processes.  
+**Offline Setting** prioritizes **parallel processing** for efficiency but requires all audio segments of a speech to be preloaded. For example, when processing a speech with $$n$$ segments, we first extract their initial ASR results in parallel and all ASR of segments then undergo context-aware refinement in parallel. Therefore, the refinement of the $$i$$-th segment, i.e., $$\bar{s}\_{i}$$ to $${s}\_{i}$$, rely on the context consisted of **unrefined ASR results** of preceding segments, i.e., $${\bar{s}\_{<i}}$$). 
 
 **Online Setting** adopts the **sequential processing** and is similar to simultaneous translation. The refinement of the $$i$$-th segment ASR starts when the refinements of all preceding segments are done. Because the refinement of  $$\bar{s}\_{i}$$ to $$s\_{i}$$ depends on the **final refined ASR results** of preceding segments ($$s_{<i}$$). This dynamic context ensures higher accuracy but introduces latency, as each segment must wait for its predecessors to complete the entire pipeline.
 
-The differece bettween them as follow:
+The same logic applies to translation and translation refinement processes. The main differece bettween them as follow:
 
 | Dimension       | Offline Setting                        | Online Setting                        |
 |-----------------|--------------------------------|-------------------------------|
@@ -81,24 +82,14 @@ The differece bettween them as follow:
 | **Latency**      | Low (parallel computation)      | High (sequential dependency)   |
 | **Use Case**     | Non-real-time post-processing translation   | Real-time simultaneous translation      |
 
+We will make a clear description about the offline and online setting in the revised version.
 
-**Key Takeaway**:  
-- **Offline** trades **context freshness** (using unrefined context) for parallel speed, ideal for non-real-time tasks (e.g., post-processing recordings).  
-- **Online** trades **latency** for refined context accuracy, suited for real-time streaming (e.g., live interpretation).  
-
-*(Notation: *̄sᵢ* = initial ASR result of segment *i*; *sᵢ* = refined result; *{̄s_{<i}}* = unrefined context; *{s_{<i}}* = refined context.)* 
-
-## 5. Online/Offline Mode Explanation
-
-The writing style and language is overly complicated at times, and this makes the explanation hard to follow. The paper would benefit from a careful rewrite to improve clarity and correctness. See for example lines 246-249 and 346.
-Figure 2 can be improved. For example, the determining module is labelled as "identify". This verb does not help the reader to understand what is being done here. Consider that the determining module is basically making an "accept/reject" decision over the proposed ASR/MT correction. For ASR/MT context, the context is labelled as "retrieval". I would argue that retrieval should be put instead in the blue arrow going from Document-level Context to Long- and Short-Memory Context.
-All equations of Section 2.1 use argmax, which implies a search, but I see no mention of search elsewhere in the paper. How are you making these decisions? Beam search? Greedy search? Sampling?
-Section 4. Is this the full DoCIA (a-m-p)? I'm assuming so, but this should be stated somewhere, considering that DoCIA a-m performs better for some configurations.
-I do not understand section 4.3. Online DoCIA refers to the setting where you add the produced transcriptions/translations to the ASR and MT histories, respectively. This makes sense, and it is what you would do during inference in a production scenario. What is the offline setting? You say that "the context is not updated and relies solely on segment-level translation/ASR results" What does this mean? What is being done in the offline scenario ff you are not using the transcriptions/translations of your system? This is a critical issue that needs to be clarified.
-Figure 8 is titled "ASR Refinement Prompt Template", but it is about MT refinement.
-Please indicate which specific version of MuST-C you used for the experiments (v1,v3,etc)
 
 # Review 3
+
+**Q:** Missing citations for some related works and more  state of 
+
+
 
 The contribution of LLM refinement is not new in L115. It is already been done in [1] where the system performed ASR refinement and MT doc-level refinement with LLMs for speech translation. Hence, this needs to be edited as the main novelty in the paper lies in Multi-Level Context Integration and Refinement Determination Mechanism
 
