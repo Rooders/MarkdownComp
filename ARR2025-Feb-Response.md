@@ -1,6 +1,5 @@
 
-##Review 1
-Generally, I do not have found any major concerns about the submission, I have only these two points:
+## Review 1
 
 Thank you very much for your kind comments and for recognizing our work. We respond to two concerns you mentioned as follows:
 
@@ -37,7 +36,7 @@ We are very grateful for your thoughtful revision suggestions on this work. Our 
 
 **Q:** What about using DMT with a fixed number of preceding segments?
 
-**A:** This is an insightful suggestion. Following your suggestion, we implement a DMT baseline with a fixed number of context segments ($$\text{ASR-DMT}_{fix}$$). For a fair comparison, we set the fixed context number as $m+n$, which is the same as that used in our DoCIA. The detailed experimental result is as follows:
+**A:** This is an insightful suggestion. Following your suggestion, we implement a DMT baseline with a fixed number of context segments ($$\text{ASR-DMT}_{fix}$$). For a fair comparison, we used the fixed $m+n$ proceeding segment as context. The number of context segments is the same as that used in our DoCIA. The detailed experimental result is as follows:
 | **System**             | **⇒ De** |          | **⇒ It** |          | **⇒ Pt** |          | **⇒ Ru** |          | **⇒ Ro** |          | **Avg** |          |
 |------------------------|-------------|----------|-------------|----------|-------------|----------|-------------|----------|-------------|----------|-------------|----------|
 |                        | *s*-Co.   | *d*-Co.| *s*-Co.   | *d*-Co.| *s*-Co.   | *d*-Co.| *s*-Co.   | *d*-Co.| *s*-Co.   | *d*-Co.| *s*-Co.   | *d*-Co.|
@@ -58,7 +57,7 @@ We are very grateful for your thoughtful revision suggestions on this work. Our 
 | DoCIAₐ₋ₘ₋ₚ               | 82.95       | 6.192    | 83.39       | 5.997    | 83.90       | 5.797    | 81.97       | 5.841    | 85.01       | 6.033    | 83.45       | 5.973   |
 | $$\text{ASR-DMT}_{fix}$$| 81.79       | 5.993    | 82.15       | 5.779    | 82.51       | 5.681    | 79.74       | 5.625    | 83.21       | 5.673    | 81.88       | 5.750    |
 
-The results show DMT with fixed number of context segments is slightly better more that with all context segments but still behind our DoCIA. 
+The results show DMT with a fixed number of context segments is slightly better more than with all context segments but still behind our DoCIA. We will include the new results in our revised version.
 
 **Q:** Writing Style & Clarity  
 
