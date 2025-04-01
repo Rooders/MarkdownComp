@@ -116,7 +116,7 @@ We observe that embedding-based retrieval performs better in $s$-Comet but is li
 
 **Q:** Using Speech QE to perform the proposed refinement determination mechanism.
 
-**A:** Thank you for this great suggestion! We follow your suggestion and use the Speech QE to perform our determination mechanism. More specifically, we take the refinement the results as follows:
+**A:** Thank you for this great suggestion! We follow your suggestion and use the Speech QE to perform our determination mechanism. Since En-De is the only language pair supported by their open-source model that overlaps with our dataset, we conducted experiments exclusively on En-De. Here, we accept the refined result when its QE score surpasses that of the unrefined result. The detailed results is as follows:
 
 | **System**             | **En ⇒ De** |          |
 |------------------------|-------------|----------|
