@@ -3,11 +3,12 @@
 
 Thank you very much for your kind comments and for recognizing our work. We respond to two concerns you mentioned as follows:
 
-**Q:**  The statistical test in the main results (Table 1).
+**Q:** _**The statistical test in the main results (Table 1)**_.
 
 **A:** Since COMET does not support statistical significance testing, we currently do not provide significance tests for COMET scores. However, we will consider report significance testing based on BLEU scores in the revised version.
 
-**Q:** _Why did you choose only LLaMa and GPT-4o-mini out of four originally tested models_?
+**Q:**  
+> Why did you choose only LLaMa and GPT-4o-mini out of four originally tested models ?
 
 **A:** Considering the computational resource consumption and API costs, our ablation study maintains the same model selection setup as other analytical experiments in Section 5, in which we selected a lightweight open-source model and a closed-source model with a more cost-effective API from the four candidate models as representatives for the experiments.
 
