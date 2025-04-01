@@ -35,6 +35,7 @@ We will include the new experimental results in the revised version.
 We are very grateful for your thoughtful revision suggestions on this work. And we try to address your concerns as follows:
 
 **Q:** __What about using DMT with a fixed number of preceding segments?__
+
 **A:** Thank you for this insightful suggestion. Following your suggestion, we implement a DMT baseline with a fixed number of context segments (ASR-DMT$_{fix}$). For a fair comparison, we used the fixed $m+n$ proceeding segments as context. The number of context segments is the same as that used in our DoCIA. The detailed experimental result is as follows:
 | **System**             | **⇒ De** |          | **⇒ It** |          | **⇒ Pt** |          | **⇒ Ru** |          | **⇒ Ro** |          | **Avg** |          |
 |------------------------|-------------|----------|-------------|----------|-------------|----------|-------------|----------|-------------|----------|-------------|----------|
@@ -59,6 +60,7 @@ We are very grateful for your thoughtful revision suggestions on this work. And 
 The results show DMT with a fixed number of context segments is slightly better more than with all context segments but still behind our DoCIA. We will include the new results in our revised version.
 
 **Q:** __Writing Style & Clarity__  
+
 **A:** We sincerely appreciate your careful suggestions in paper writing. They are useful for improving the correctness and soundness of our work. We will follow these suggestions and do a throughout proofreading. Including but not limited to the follows:
 - Adjust the module name and position Fig. 1.
 - Clarify our sampling search strategy.
@@ -84,6 +86,7 @@ The same logic applies to translation and translation refinement processes. The 
 
 We will make a clear description about the offline and online setting in the revised version.
 
+Finally, if
 
 # Review 3
 
