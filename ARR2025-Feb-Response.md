@@ -30,6 +30,7 @@ Additionally, we have supplemented more comprehensive ablation experiments in th
 We will include the new experimental results in the revised version.
 
 
+
 # Review 2
 
 We are very grateful for your thoughtful revision suggestions on this work. And we try to address your concerns as follows:
@@ -73,9 +74,9 @@ The results show DMT with a fixed number of context segments is slightly better 
 
 **Offline Setting** prioritizes **parallel processing** for efficiency but requires all audio segments of a speech to be preloaded. For example, when processing a speech with $n$ segments, we first extract their initial ASR results in parallel and all ASR of segments then undergo context-aware refinement in parallel. Therefore, the refinement of the $$i$$-th segment, i.e., $\bar{s}\_{i}$ to ${s}\_{i}$, rely on the context consisted of **unrefined ASR results** of preceding segments, i.e., ${\bar{s}\_{<i}}$). 
 
-**Online Setting** adopts the **sequential processing** and is similar to simultaneous translation. The refinement of the $$i$$-th segment ASR starts when the refinements of all preceding segments are done. Because the refinement of  $$\bar{s}\_{i}$$ to $$s\_{i}$$ depends on the **final refined ASR results** of preceding segments ($$s_{<i}$$). This dynamic context ensures higher accuracy but introduces latency, as each segment must wait for its predecessors to complete the entire pipeline.
+**Online Setting** adopts the **sequential processing** and is similar to simultaneous translation. The refinement of the $$i$$-th segment ASR starts when the refinements of all preceding segments are done. Therefores, the refinement of  $$\bar{s}\_{i}$$ to $$s\_{i}$$ incorperates the **refined ASR results** of preceding segments ($$s_{<i}$$). This dynamic context ensures higher accuracy but introduces latency, as each segment must wait for its predecessors to complete the entire pipeline.
 
-The same logic applies to translation and translation refinement processes. The main differece bettween them as follow:
+The same logic applies to translation and translation refinement processes. The main difference bettween them at the refinement stage can be summaried as follow:
 
 | Dimension       | Offline Setting                        | Online Setting                        |
 |-----------------|--------------------------------|-------------------------------|
@@ -86,7 +87,7 @@ The same logic applies to translation and translation refinement processes. The 
 
 We will make a clear description about the offline and online setting in the revised version.
 
-Finally, if
+Lastly, if our response and revision effectively address the concerns you raised, we kindly ask you to consider raising the overall and soundness scores. Thank you again for your kind comments on this work.
 
 # Review 3
 
@@ -98,7 +99,8 @@ Finally, if
 3. **Scenario Focus**: Their work primarily targets *offline scenarios*, whereas our approach is also designed for online scenarios and emphasizes the contextual integration benefits.  
 
 **Q:** Using the embeddings-based retrieval techniques.
-**A:** Thank you for this interesting suggestion. We use the **embeding** to perform our context retrival and the experimental results as follows:
+
+**A:** Thank you for this interesting suggestion. We use the **embeding** model ([Open AI text embeddings](https://platform.openai.com/docs/models/text-embedding-3-small))to perform our context retrival and the experimental results as follows:
 
 | **System**             | **En ⇒ De** |          | **En ⇒ Ru** |          |
 |------------------------|-------------|----------|-------------|----------|
@@ -130,13 +132,28 @@ We observe Speech QE does not gain more improvement compared to the edit-distanc
 
 **Q:** The state of the audio segmenter and the impact of segmentation of long-form audio on ST outputs.
 
-**Q:** The discussion of online and offline setting is unclear. 
+**A:** In this paper, we utilize the golden segmentation provided by the original dataset. The impact of long-form segmentation on our method is intriguing, and we plan to explore this further in future work. Additionally, we will provide a clearer description in the revised version.
 
+**Q:** The discussion of online and offline setting is unclear.
 
+**A:** We detailed the online and offline setting as follows:
 
+**Offline Setting** prioritizes **parallel processing** for efficiency but requires all audio segments of a speech to be preloaded. For a speech with \(n\) segments, we first extract their initial ASR results in parallel, after which all segments undergo context-aware refinement simultaneously. Consequently, the refinement of the \(i\)-th segment (\(\bar{s}_{i} \to s_{i}\)) relies on the **unrefined ASR results** of preceding segments (\(\bar{s}_{<i}\)).  
 
+**Online Setting**, in contrast, follows a **sequential processing** approach, akin to simultaneous translation. The refinement of the \(i\)-th segment’s ASR result begins only after all preceding segments have been refined. Thus, the refinement of \(\bar{s}_{i} \to s_{i}\) incorporates the **refined ASR results** of prior segments (\(s_{<i}\)). This dynamic context improves accuracy but introduces latency, as each segment must wait for its predecessors to complete the entire pipeline.  
 
+The same principles apply to the translation and translation refinement processes. The key differences between the offline and online settings during the refinement stage are summarized below:  
 
+| **Dimension**       | **Offline Setting**                        | **Online Setting**                        |
+|-----------------|--------------------------------|-------------------------------|
+| **Processing Logic** | Parallel processing of all segments | Sequential processing, one segment at a time |
+| **Context Used**      | Static (unrefined results \(\bar{s}_{<i}\))      | Dynamic (refined results \(s_{<i}\))      |
+| **Latency**      | Low (due to parallel computation)      | High (due to sequential dependency)   |
+| **Use Case**     | Non-real-time post-processing translation   | Real-time simultaneous translation      |
+
+We will provide a clearer explanation of the offline and online settings in the revised version.  
+
+Finally, if our response and revisions adequately address your concerns, we would greatly appreciate it if you could consider adjusting the overall and soundness scores. Thank you again for your thoughtful feedback on our work!  
 
 
 The contribution of LLM refinement is not new in L115. It is already been done in [1] where the system performed ASR refinement and MT doc-level refinement with LLMs for speech translation. Hence, this needs to be edited as the main novelty in the paper lies in Multi-Level Context Integration and Refinement Determination Mechanism
