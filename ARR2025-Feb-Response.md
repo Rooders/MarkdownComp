@@ -1,7 +1,7 @@
 
 ## Review 1
 
-Thank you very much for your positive feedback and insighful suggestion. We respond to the concerns you mentioned in review as follows:
+We sincerely appreciate for your positive feedback and insighful suggestions in this work. We respond to the concerns you mentioned in review as follows:
 
 **Q:**  __The statistical test in the main results (Table 1).__
 
@@ -32,44 +32,44 @@ We will include the new experimental results in the revised version.
 
 # Review 2
 
-We are very grateful for your thoughtful revision suggestions on this work. Our point-to-point response to your concerns is as follows:
+We are very grateful for your thoughtful revision suggestions on this work. And we try to address your concerns as follows:
 
-**Q:** What about using DMT with a fixed number of preceding segments?
-**A:** This is an insightful suggestion. Following your suggestion, we implement a DMT baseline with a fixed number of context segments ($$\text{ASR-DMT}_{fix}$$). For a fair comparison, we used the fixed $m+n$ proceeding segment as context. The number of context segments is the same as that used in our DoCIA. The detailed experimental result is as follows:
+**Q:** __What about using DMT with a fixed number of preceding segments?__
+**A:** Thank you for this insightful suggestion. Following your suggestion, we implement a DMT baseline with a fixed number of context segments (ASR-DMT$_{fix}$). For a fair comparison, we used the fixed $m+n$ proceeding segments as context. The number of context segments is the same as that used in our DoCIA. The detailed experimental result is as follows:
 | **System**             | **⇒ De** |          | **⇒ It** |          | **⇒ Pt** |          | **⇒ Ru** |          | **⇒ Ro** |          | **Avg** |          |
 |------------------------|-------------|----------|-------------|----------|-------------|----------|-------------|----------|-------------|----------|-------------|----------|
 |                        | *s*-Co.   | *d*-Co.| *s*-Co.   | *d*-Co.| *s*-Co.   | *d*-Co.| *s*-Co.   | *d*-Co.| *s*-Co.   | *d*-Co.| *s*-Co.   | *d*-Co.|
 | **`LLaMA-3.1-8B`**     |             |          |             |          |             |          |             |          |             |          |             |          |
 | ASR-DMT                | 77.88       | 5.712    | 79.79       | 5.651    | 80.69       | 5.477    | 76.99       | 5.211    | 79.01       | 5.401    | 78.87       | 5.490    |
 | DoCIAₐ₋ₘ₋ₚ              | 79.15       | 5.912    | 80.88       | 5.909    | 81.75       | 5.757    | 78.39       | 5.556    | 80.54       | 5.734    | 80.15       | 5.774|
-| $$\text{ASR-DMT}_{fix}$$| 78.12       | 5.701    | 79.77       | 5.632    | 80.89       | 5.521    | 77.15       | 5.236    | 79.25       | 5.416    | 79.04       | 5.501    |
+| ASR-DMT$_{fix}$| 78.12       | 5.701    | 79.77       | 5.632    | 80.89       | 5.521    | 77.15       | 5.236    | 79.25       | 5.416    | 79.04       | 5.501    |
 | **`LLaMA-3.1-70B`**    |             |          |             |          |             |          |             |          |             |          |             |          |
 | ASR-DMT                | 81.54       | 6.143    | 82.36       | 5.976    | 82.85       | 5.745    | 80.99       | 5.867    | 83.15       | 5.979    | 82.17       | 5.942    |
 | DoCIAₐ₋ₘ₋ₚ              | 82.63       | 6.373    | 83.66       | 6.264    | 83.99       | 6.037    | 82.69       | 6.168    | 85.32       | 6.365    | 83.66       | 6.241    |
-| $$\text{ASR-DMT}_{fix}$$| 81.36      | 6.129    | 82.39       | 6.031    | 83.01       | 5.773    | 81.13       | 5.901   | 83.19        |  6.015    | 82.22       | 5.970    |
+| ASR-DMT_${fix}$| 81.36      | 6.129    | 82.39       | 6.031    | 83.01       | 5.773    | 81.13       | 5.901   | 83.19        |  6.015    | 82.22       | 5.970    |
 | **`GPT-4o-mini`**      |             |          |             |          |             |          |             |          |             |          |             |          |
 | ASR-DMT                | 82.42       | 6.108    | 83.52       | 5.833    | 83.32       | 5.943    | 82.80       | 5.948    | 84.82       | 6.018    | 83.37       | 5.970    |
 | DoCIAₐ₋ₘ₋ₚ              | 83.64       | 6.444    | 84.76       | 6.387    | 84.51       | 6.297    | 84.32       | 6.286    | 86.34       | 6.424    | 84.71       | 6.368|
-| $$\text{ASR-DMT}_{fix}$$| 82.69       | 6.102    | 83.81       | 5.852    | 83.11       | 5.931    | 83.15       | 5.961    | 84.79       | 6.021    | 83.51       | 5.973   |
+| ASR-DMT$_{fix}$| 82.69       | 6.102    | 83.81       | 5.852    | 83.11       | 5.931    | 83.15       | 5.961    | 84.79       | 6.021    | 83.51       | 5.973   |
 | **`GPT-3.5-turbo`**    |             |          |             |          |             |          |             |          |             |          |             |          |
 | ASR-DMT                 | 81.68       | 5.977    | 81.93       | 5.760    | 82.53       | 5.687    | 79.50       | 5.611    | 83.30       | 5.687    | 81.78       | 5.744    |
 | DoCIAₐ₋ₘ₋ₚ               | 82.95       | 6.192    | 83.39       | 5.997    | 83.90       | 5.797    | 81.97       | 5.841    | 85.01       | 6.033    | 83.45       | 5.973   |
-| $$\text{ASR-DMT}_{fix}$$| 81.79       | 5.993    | 82.15       | 5.779    | 82.51       | 5.681    | 79.74       | 5.625    | 83.21       | 5.673    | 81.88       | 5.750    |
+| ASR-DMT$_{fix}$| 81.79       | 5.993    | 82.15       | 5.779    | 82.51       | 5.681    | 79.74       | 5.625    | 83.21       | 5.673    | 81.88       | 5.750    |
 
 The results show DMT with a fixed number of context segments is slightly better more than with all context segments but still behind our DoCIA. We will include the new results in our revised version.
 
-**Q:** Writing Style & Clarity  
+**Q:** __Writing Style & Clarity__  
 **A:** We sincerely appreciate your careful suggestions in paper writing. They are useful for improving the correctness and soundness of our work. We will follow these suggestions and do a throughout proofreading. Including but not limited to the follows:
 - Adjust the module name and position Fig. 1.
 - Clarify our sampling search strategy.
 - Clarify that the DoCIAₐ₋ₘ₋ₚ is our full DoCIA.
 - Clarify that MuST-C v3 is used in our paper.
 
-**Q:** Clarity of the offline and online setting
+**Q:** __Clarity of the offline and online setting.__
 
 **A:** We detailed the online and offline setting as follows:
 
-**Offline Setting** prioritizes **parallel processing** for efficiency but requires all audio segments of a speech to be preloaded. For example, when processing a speech with $$n$$ segments, we first extract their initial ASR results in parallel and all ASR of segments then undergo context-aware refinement in parallel. Therefore, the refinement of the $$i$$-th segment, i.e., $$\bar{s}\_{i}$$ to $${s}\_{i}$$, rely on the context consisted of **unrefined ASR results** of preceding segments, i.e., $${\bar{s}\_{<i}}$$). 
+**Offline Setting** prioritizes **parallel processing** for efficiency but requires all audio segments of a speech to be preloaded. For example, when processing a speech with $n$ segments, we first extract their initial ASR results in parallel and all ASR of segments then undergo context-aware refinement in parallel. Therefore, the refinement of the $$i$$-th segment, i.e., $\bar{s}\_{i}$ to ${s}\_{i}$, rely on the context consisted of **unrefined ASR results** of preceding segments, i.e., ${\bar{s}\_{<i}}$). 
 
 **Online Setting** adopts the **sequential processing** and is similar to simultaneous translation. The refinement of the $$i$$-th segment ASR starts when the refinements of all preceding segments are done. Because the refinement of  $$\bar{s}\_{i}$$ to $$s\_{i}$$ depends on the **final refined ASR results** of preceding segments ($$s_{<i}$$). This dynamic context ensures higher accuracy but introduces latency, as each segment must wait for its predecessors to complete the entire pipeline.
 
