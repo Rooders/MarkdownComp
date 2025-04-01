@@ -1,9 +1,9 @@
 
 ## Review 1
 
-Thank you very much for your kind comments and for recognizing our work. We respond to two concerns you mentioned as follows:
+Thank you very much for your positive feedback and insighful suggestion. We respond to the concerns you mentioned in review as follows:
 
-**Q:**  The statistical test in the main results (Table 1).
+**Q:**  __The statistical test in the main results (Table 1).__
 
 **A:** Since COMET does not support statistical significance testing, we currently do not provide significance tests for COMET scores. However, we will consider report significance testing based on BLEU scores in the revised version.
 
