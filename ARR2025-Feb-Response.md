@@ -172,3 +172,24 @@ In Introduction, i would also appreciate if there are few lines on the impact of
 
 L451 The discussion of offline/online is unclear.  The conventional definition of online ST means simultaneous translation as far as i know and it is a bit confusing. Please clarify here
 
+Thank your for your reply and let us know your concerns. To address your concern, we conduct a detailed statistical significance testing by runing `comet-compare` with paired T-Test method. We compare our full DoCIA system with ASR-SMT/ASR-DMT system. `True` denotes our DoCIA is better than ASR-SMT or ASR-DMT, then null hypothesis rejected according to t-test with `p_value` < 0.01 and scores differ significantly across samples. `False` denotes the opposite. The detailed  statistical significance testing is as follows:
+
+| **System**             | **En ⇒ De**| **En ⇒ It** | **En ⇒ Pt**| **En ⇒ Ru**|**En ⇒ Ro** |
+|------------------------|-------------|-------------|-------------|----------|-------------|
+| **`LLaMA-3.1-8B`**     |             |             |             |          |             |
+| DoCIA compare to  ASR-SMT/ASR-DMT    | `True/True` | `True/True` | `True/True` | `True/True`| `True/True`|
+| **`LLaMA-3.1-70B`**    |             |             |             |          |              |
+| DoCIA compare to  ASR-SMT/ASR-DMT              | `True/True` | `True/True` | `True/True` | `True/True`| `True/True`|
+| **`GPT-4o-mini`**      |             |              |             |          |             |
+| DoCIA compare to  ASR-SMT/ASR-DMT             | `True/True` | `True/True` | `True/True` | `True/True`| `True/True`|
+| **`GPT-3.5-turbo`**    |             |              |             |          |             |
+| DoCIA compare to  ASR-SMT/ASR-DMT              | `True/True` | `True/True` | `True/True` | `True/True`| `True/True`|
+
+Additionlly, we also conduct other three statistical significance testing, including bettwen DoCIA with BM25 and DoCIA with ER, bettween DoCIA with Edit-Dist. and DoCIA with Speech QE.
+
+| DoCIA (*w/* BM25)      | 79.15       | 5.912    | 78.39      | 5.556    |
+|     *w/* ER            | 79.35       | 5.911    | 78.62       |5.537    |
+
+
+
+
