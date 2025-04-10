@@ -21,3 +21,22 @@ In Section 3.22 (Point-wise Scoring), if ground-truth scores can be directly cal
 
 我们在3.22计算ground-truth scores是构建predictor的训练集，用于对齐高质量的counterspeech分布。但在推理阶段，由于没有golden counterspeech是无法获得ground-truth scores的。而被训练好的predictor是reference-free的，在推理阶段在不提供reference的情况下，能找出高质量的
 
+## Reviewer 2
+
+Missing comparisons with RLHF-based methods (e.g., DPO, PPO, or rejection sampling), which are directly relevant for tasks involving response preference modeling.
+
+
+No comparison to guided or constrained decoding techniques, which are standard for controlling generation quality and style — particularly important in safety-critical tasks like CS.
+
+Q1，Q2，Q3，Q5，Q7
+RLHF-based method是用于对齐偏好，主要用于模型生成内容的纠正，其并不能产生具体分数用于排序，因此和我们提出的方法相关性较少且无法比较。而我们的方法并未涉及任何的constrained decoding techniques，因此我们任务这个比较也是不合理的。而由于在multilingual的counterspeech领域训练集的稀缺性，去实现一个基于大模型的fine-tune也是不切实际的，事实上这类方法也是没有的。另外，如果在Counterspeech领域有使用constrained decoding techniques、RLHF-based、fine-tuned的方法的文献，也请您列出。
+
+
+Generation is entirely unconstrained; diversity is achieved only via temperature and prompt variation, missing more sophisticated decoding methods.
+我们ranking方法需要借助模型生成文本的多样性，来产生不同的结果，从而选择处更好的结果。如果进行解码限制，这一目的将很难达到。
+The core contribution is a scoring-based selection, yet the generation process itself is relatively naïve and unchanged from basic prompting.
+
+Only prompting-based baselines are considered; no strong fine-tuned generation model or retrieval-augmented generation baseline is included.
+No iterative loop or feedback from ranking to generation — the method is static and lacks learning to improve over time.
+我们对您的这个问题不太理解，我们并不需要iterative loop和feedback去生成。
+Lack of ablations comparing re-ranking to reranking+finetuning, which would test if the selected outputs can improve future generations.
